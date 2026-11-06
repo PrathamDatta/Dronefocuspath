@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission Infrastructure | Derospace Systems</title>
+<meta name="description" content="Unified mission infrastructure, rapid-deployment UAV capability and operator training for coordinated, multi-OEM drone operations. Built in India, for the world.">
+<meta name="theme-color" content="#F1EEE7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' fill='%230E1726'/%3E%3Cpath d='M8 23 17 9l9 14z' fill='none' stroke='%23E06AA8' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="mission-infrastructure">
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="site-head" id="top">
+  <div class="wrap head-row">
+    <a class="brand" href="index.html" aria-label="Derospace Systems home">
+      <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true">
+        <circle cx="17" cy="17" r="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2.5 3"/>
+        <path d="M8 22 L17 9 L26 22 Z" fill="none" stroke="#801E62" stroke-width="2"/>
+        <circle cx="17" cy="9" r="2.8" fill="currentColor"/><circle cx="8" cy="22" r="2.8" fill="currentColor"/><circle cx="26" cy="22" r="2.8" fill="currentColor"/>
+      </svg>
+      <span class="brand-name">Derospace<small>Systems</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="mission-infrastructure.html" class="active" aria-current="page"><i>01</i>Mission Infrastructure</a>
+      <a href="mission-air-systems.html"><i>02</i>Mission Air Systems</a>
+      <a href="dronocation.html"><i>03</i>Dronocation</a>
+      <a href="about.html">About</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-solid nav-cta" href="contact.html">Request a demo</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="page-hero" id="hero">
+  <svg class="chart" id="chart" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="wrap hero-inner">
+    <p class="label reveal"><span class="live"></span>Mission Infrastructure</p>
+    <h1 class="page-title" data-split>Coordinate the <em>Mission.</em></h1>
+    <p class="hero-sub reveal" style="--d:.4s">Many aircraft, many OEMs, many locations: one coordinated operation. Govern every mission. Coordinate every operation.</p>
+    <div class="actions reveal" style="--d:.5s"><a class="btn btn-solid" href="contact.html">Request a demo <span class="arr">&rarr;</span></a><a class="btn btn-line" href="#deromic">Explore DeroMiC <span class="arr">&darr;</span></a></div>
+  </div>
+</section>
+
+<section class="dark" id="deromic">
+  <div class="wrap">
+    <header class="sec-head"><span class="idx">01</span><p class="label">Mission Infrastructure</p></header>
+    <div class="two">
+      <div>
+        <h2 class="mega" data-split>DeroMiC</h2>
+        <p class="lead reveal">Unified Coordinated Operational Ecosystem for every mission, every drone &amp; every location.</p>
+        <p class="patent reveal"><span class="live"></span>DeroMiC &middot; Indian Patent Application 202541104086 A</p>
+        <p class="reveal">DeroMiC provides a unified operational framework for governing, planning, executing and overseeing UAV missions across multiple OEMs, organisations and locations, from the rules that govern a mission to the evidence it leaves behind. <b>Not another ground station: the system that connects them all.</b></p>
+        <div class="actions reveal"><a class="btn btn-accent" href="contact.html">Request a demo <span class="arr">&rarr;</span></a><a class="btn btn-line" href="#deromic-features">See features</a></div>
+      </div>
+      <figure class="shot reveal"><img src="assets/deromic-shot.webp" alt="DeroMiC interface showing governance, planning, field execution and unified operational view around one mission context" loading="lazy" width="1080" height="928"></figure>
+    </div>
+
+    <div class="eco reveal" id="eco">
+      <div class="eco-head">
+        <div><h3>Current operating ecosystem vs. our solution</h3>
+        <p>Four organisations, each flying UAVs from several OEMs at different locations. Toggle the view.</p></div>
+        <div class="switch" role="tablist" aria-label="Ecosystem view">
+          <button role="tab" id="swToday" aria-selected="true">Today</button>
+          <button role="tab" id="swUnified" aria-selected="false">With DeroMiC</button>
+          <span class="switch-thumb" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="eco-stage" id="ecoStage" data-mode="today">
+        <svg id="ecoSvg" viewBox="0 0 900 460" role="img" aria-label="Network diagram of four organisations, each with three OEM platforms. Today they are fragmented with no shared picture. With DeroMiC all are linked into one unified operating picture."></svg>
+        <div class="eco-caption" id="ecoCap" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <header class="sec-head" id="the-gap" style="margin-top:120px"><span class="idx">&mdash;</span><h2 data-split>Operations are scaling. Coordination is <em>not.</em></h2></header>
+    <p class="lead reveal" style="margin-bottom:48px">More missions, more applications, more OEM platforms and more locations multiply the work of keeping every aircraft and team in step.</p>
+    <div class="rows gap-rows">
+      <div class="row head" aria-hidden="true"><span></span><span>Gap</span><span>What operators face today</span><span>What it costs</span></div>
+      <article class="row reveal"><span class="n">01</span><h4>Fragmented fleets</h4><p>Each vendor brings its own closed ground station and data link.</p><p class="cost">No single operating picture</p></article>
+      <article class="row reveal"><span class="n">02</span><h4>Broken coordination</h4><p>Multi-UAV, multi-mission tasking done by hand across consoles.</p><p class="cost">Slow response and airspace conflict</p></article>
+      <article class="row reveal"><span class="n">03</span><h4>Fragile distribution</h4><p>Field teams depend on central links that degrade or drop.</p><p class="cost">Missions stall at the edge</p></article>
+      <article class="row reveal"><span class="n">04</span><h4>No governance</h4><p>Weak authority oversight, audit trails and role control.</p><p class="cost">Compliance and accountability risk</p></article>
+      <article class="row reveal"><span class="n">05</span><h4>Slow mobility</h4><p>Bulky cases and lengthy setup.</p><p class="cost">Delayed deployment when time matters</p></article>
+      <article class="row reveal"><span class="n">06</span><h4>Pilot burden</h4><p>A different controller and interface for every OEM.</p><p class="cost">More training and more switching errors</p></article>
+    </div>
+    <p class="pull" data-split>The next challenge is not drone performance. It is <em>coordinating many drones at scale.</em></p>
+
+    <header class="sec-head" id="how-it-works"><span class="idx">&mdash;</span><h2 data-split>From the authority&rsquo;s rules to the field&rsquo;s <em>evidence.</em></h2></header>
+    <p class="lead reveal" style="margin-bottom:56px">DeroMiC is not another ground station, fleet dashboard or UTM tool. It is the infrastructure underneath them.</p>
+    <div class="life" id="life">
+      <div class="life-track"><div class="life-fill" id="lifeFill"></div></div>
+      <ol class="life-steps">
+        <li><span class="dot">1</span><h4>Govern</h4><p>The authority sets rules, permissions and constraints.</p></li>
+        <li><span class="dot">2</span><h4>Plan</h4><p>Organisations assign missions, teams, UAVs and areas.</p></li>
+        <li><span class="dot">3</span><h4>Execute</h4><p>Missions run in the field within those rules.</p></li>
+        <li><span class="dot">4</span><h4>Oversee &amp; Audit</h4><p>Mission evidence flows back for live view, replay and audit.</p></li>
+      </ol>
+    </div>
+
+    <div class="split" id="deromic-features">
+      <div>
+        <h3 class="sub reveal">Features</h3>
+        <ul class="list">
+          <li class="reveal"><span>01</span><div><b>Multi-OEM operations</b>Plan and oversee missions across integrated platforms from different makers.</div></li>
+          <li class="reveal"><span>02</span><div><b>Multi-UAV, multi-mission tasking</b>Assign and track many missions without switching consoles.</div></li>
+          <li class="reveal"><span>03</span><div><b>Multi-location coordination</b>Coordinate teams and aircraft across distributed sites.</div></li>
+          <li class="reveal"><span>04</span><div><b>Works at the edge</b>Missions continue in the field when links degrade.</div></li>
+          <li class="reveal"><span>05</span><div><b>Rules and roles built in</b>Permissions and constraints apply to every mission.</div></li>
+          <li class="reveal"><span>06</span><div><b>Live view, replay and audit</b>Every mission is visible as it happens and recorded after.</div></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub reveal">Advantages</h3>
+        <ul class="list">
+          <li class="reveal"><span>01</span><div><b>One operating picture</b>Unified operational visibility across integrated OEM platforms.</div></li>
+          <li class="reveal"><span>02</span><div><b>Faster, safer response</b>Supports governed mission coordination and deconfliction.</div></li>
+          <li class="reveal"><span>03</span><div><b>Lower pilot workload</b>Less switching between OEM controllers and interfaces.</div></li>
+          <li class="reveal"><span>04</span><div><b>Accountability by design</b>Compliance and evidence come with every mission, not after it.</div></li>
+          <li class="reveal"><span>05</span><div><b>Freedom from vendor lock-in</b>Add aircraft from new OEMs without rebuilding your operation.</div></li>
+          <li class="reveal"><span>06</span><div><b>Sovereign technology</b>Indian-owned IP, designed and developed in India for Indian operational and policy needs.</div></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap">
+    <h2 data-split>See DeroMiC run a multi-OEM <em>mission.</em></h2>
+    <p class="lead reveal">Open for demonstration requests from government, PSU, defence and critical-infrastructure operators.</p>
+    <div class="actions reveal"><a class="btn btn-accent" href="contact.html">Request a demo <span class="arr">&rarr;</span></a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-big">Mission systems<br>for the <em>UAV era.</em></p>
+    <div class="foot-grid">
+      <div><h5>Company</h5><a href="about.html">About Us</a><a href="about.html#mission-vision">Mission &amp; Vision</a><a href="about.html#team">Team</a><a href="news.html">News &amp; Milestones</a></div>
+      <div><h5>Products</h5><a href="mission-infrastructure.html">DeroMiC</a><a href="mission-air-systems.html">dXcale</a><a href="dronocation.html#remote-pilot-certification">Remote Pilot Certification</a><a href="dronocation.html#institutional-training">Institutional Training</a><a href="dronocation.html#operational-capability-development">Operational Capability Development</a></div>
+      <div><h5>Editions</h5><a href="index.html#editions">Defence &amp; National Security</a><a href="index.html#editions">Government / PSU</a><a href="index.html#editions">Private Enterprise</a><a href="index.html#editions">Global partners</a></div>
+      <div><h5>Contact</h5><a href="mailto:contact@derospacesystems.com">Email us</a><a href="tel:+911234567890">+91 12345 67890</a><a href="contact.html">Request a demo</a></div>
+    </div>
+    <div class="foot-base"><span>&copy; 2026 Derospace Systems. Patent pending. DGCA-authorised RPTO. DPIIT-recognised.</span><span>Privacy policy</span></div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

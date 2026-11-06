@@ -38,15 +38,6 @@ window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 menuBtn.addEventListener('click',function(){var o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
 $$('a[href^="#"]',nav).forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')})});
 
-/* ---------- scrollspy ---------- */
-var spy=$$('[data-spy]');
-if('IntersectionObserver' in window){
-  var so=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting)spy.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)})});
-  },{rootMargin:'-45% 0px -50% 0px'});
-  spy.forEach(function(a){var s=$(a.getAttribute('href'));if(s)so.observe(s)});
-}
-
 /* ---------- one-shot observers ---------- */
 function once(sel,fn,thr){
   var els=$$(sel);if(!els.length)return;
@@ -130,7 +121,7 @@ if(cyc&&!reduce){
   var t2=el('text',{x:HUB.x+22,y:HUB.y+50},gRoute);t2.textContent='ONE MISSION CONTEXT';
 
   /* parallax + live coordinates */
-  var hero=$('#hero'),co=$('#coords');
+  var hero=svg.parentNode,co=$('#coords');
   if(!reduce){
     hero.addEventListener('pointermove',function(e){
       var r=hero.getBoundingClientRect(),mx=(e.clientX-r.left)/r.width-.5,my=(e.clientY-r.top)/r.height-.5;
@@ -219,6 +210,14 @@ if(cyc&&!reduce){
 (function(){
   var tabs=$$('.ptabs [role="tab"]');
   function sel(t){tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
+  function deep(){
+    var id=location.hash.slice(1);if(!id)return;
+    var t=document.getElementById(id);if(!t)return;
+    var p=t.closest('[role="tabpanel"]');if(!p)return;
+    var tab=document.getElementById(p.getAttribute('aria-labelledby'));
+    if(tab){sel(tab);setTimeout(function(){var w=$('.tabs-wrap');if(w)window.scrollTo(0,w.getBoundingClientRect().top+scrollY-90)},60)}
+  }
+  window.addEventListener('hashchange',deep);if(tabs.length)deep();
   tabs.forEach(function(t,i){
     t.addEventListener('click',function(){sel(t)});
     t.addEventListener('keydown',function(e){

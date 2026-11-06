@@ -12,12 +12,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="home">
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="site-head" id="top">
   <div class="wrap head-row">
-    <a class="brand" href="#hero" aria-label="Derospace Systems home">
+    <a class="brand" href="index.html" aria-label="Derospace Systems home">
       <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true">
         <circle cx="17" cy="17" r="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2.5 3"/>
         <path d="M8 22 L17 9 L26 22 Z" fill="none" stroke="#801E62" stroke-width="2"/>
@@ -26,12 +26,13 @@
       <span class="brand-name">Derospace<small>Systems</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#deromic" data-spy><i>01</i>Mission Infrastructure</a>
-      <a href="#dxcale" data-spy><i>02</i>Air Systems</a>
-      <a href="#dronocation" data-spy><i>03</i>Dronocation</a>
-      <a href="#editions" data-spy>Editions</a>
-      <a href="#about" data-spy>About</a>
-      <a class="btn btn-solid nav-cta" href="#contact">Request a demo</a>
+      <a href="mission-infrastructure.html"><i>01</i>Mission Infrastructure</a>
+      <a href="mission-air-systems.html"><i>02</i>Mission Air Systems</a>
+      <a href="dronocation.html"><i>03</i>Dronocation</a>
+      <a href="about.html">About</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-solid nav-cta" href="contact.html">Request a demo</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span></button>
   </div>
@@ -39,7 +40,6 @@
 
 <main>
 
-<!-- HERO -->
 <section class="hero" id="hero">
   <svg class="chart" id="chart" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
   <div class="wrap hero-inner">
@@ -47,7 +47,7 @@
     <h1 class="hero-title" data-split>Everything the <em>mission</em> needs.</h1>
     <p class="hero-sub reveal" style="--d:.5s">Mission infrastructure, deployable UAV systems and operator training for evolving UAV operational needs.</p>
     <div class="actions reveal" style="--d:.6s">
-      <a class="btn btn-solid" href="#contact">Request a demo <span class="arr">&rarr;</span></a>
+      <a class="btn btn-solid" href="contact.html">Request a demo <span class="arr">&rarr;</span></a>
       <a class="btn btn-line" href="#capabilities">Explore capabilities <span class="arr">&darr;</span></a>
     </div>
   </div>
@@ -65,7 +65,7 @@
   <span>Coordinate the Mission</span><i></i><span>Mobilise UAV Capability</span><i></i><span>Prepare the Operator</span><i></i>
 </div></div>
 
-<!-- SCALE -->
+
 <section class="scale" id="scale">
   <div class="wrap">
     <p class="big" data-split>UAV operations are scaling: <em id="cycle">more aircraft</em>, and less time to respond.</p>
@@ -79,12 +79,12 @@
   </div>
 </section>
 
-<!-- CAPABILITIES -->
+
 <section class="caps" id="capabilities">
   <div class="wrap">
     <header class="sec-head reveal"><span class="idx">00</span><h2>Three ways we move a mission forward.</h2></header>
     <div class="cap-grid">
-      <a class="cap reveal" href="#deromic">
+      <a class="cap reveal" href="mission-infrastructure.html">
         <span class="cap-n">01</span>
         <svg viewBox="0 0 140 90" class="cap-ico" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5"><path class="ln" d="M70 45 22 14M70 45 118 14M70 45 20 76M70 45 120 76"/><circle cx="70" cy="45" r="10" class="core"/><circle cx="22" cy="14" r="6"/><circle cx="118" cy="14" r="6"/><circle cx="20" cy="76" r="6"/><circle cx="120" cy="76" r="6"/></g></svg>
         <p class="cap-kind">Mission Infrastructure <u>Patent pending</u></p>
@@ -93,7 +93,7 @@
         <p class="cap-flow">Govern &middot; Plan &middot; Command &middot; Execute &middot; Oversee &middot; Audit</p>
         <span class="cap-go">Explore DeroMiC <b>&rarr;</b></span>
       </a>
-      <a class="cap reveal" style="--d:.1s" href="#dxcale">
+      <a class="cap reveal" style="--d:.1s" href="mission-air-systems.html">
         <span class="cap-n">02</span>
         <svg viewBox="0 0 140 90" class="cap-ico" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5"><rect x="46" y="14" width="48" height="66" rx="4"/><path d="M58 14V6h24v8"/><rect x="56" y="28" width="28" height="12" class="core"/><path d="M56 52h28M56 62h28"/></g></svg>
         <p class="cap-kind">Mission Air Systems <u>Patent pending</u></p>
@@ -102,7 +102,7 @@
         <p class="cap-flow">Carry &middot; Deploy &middot; Fly &middot; See &middot; Act</p>
         <span class="cap-go">Explore dXcale <b>&rarr;</b></span>
       </a>
-      <a class="cap reveal" style="--d:.2s" href="#dronocation">
+      <a class="cap reveal" style="--d:.2s" href="dronocation.html">
         <span class="cap-n">03</span>
         <svg viewBox="0 0 140 90" class="cap-ico" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M70 12 16 34l54 22 54-22z" class="core"/><path d="M38 46v18c0 7 15 14 32 14s32-7 32-14V46"/><path d="M124 34v26"/></g></svg>
         <p class="cap-kind">Dronocation <u>DGCA-authorised</u></p>
@@ -116,263 +116,7 @@
   </div>
 </section>
 
-<!-- DEROMIC -->
-<section class="dark" id="deromic">
-  <div class="wrap">
-    <header class="sec-head"><span class="idx">01</span><p class="label">Mission Infrastructure</p></header>
-    <div class="two">
-      <div>
-        <h2 data-split>Coordinate the <em>Mission.</em></h2>
-        <p class="lead reveal">Many aircraft, many OEMs, many locations: one coordinated operation. Govern every mission. Coordinate every operation.</p>
-        <p class="patent reveal"><span class="live"></span>DeroMiC &middot; Indian Patent Application 202541104086 A</p>
-        <p class="reveal">DeroMiC provides a unified operational framework for governing, planning, executing and overseeing UAV missions across multiple OEMs, organisations and locations, from the rules that govern a mission to the evidence it leaves behind. <b>Not another ground station: the system that connects them all.</b></p>
-        <div class="actions reveal"><a class="btn btn-accent" href="#contact">Request a demo <span class="arr">&rarr;</span></a><a class="btn btn-line" href="#deromic-features">See features</a></div>
-      </div>
-      <figure class="shot reveal"><img src="assets/deromic-shot.webp" alt="DeroMiC interface showing governance, planning, field execution and unified operational view around one mission context" loading="lazy" width="1080" height="928"></figure>
-    </div>
 
-    <div class="eco reveal" id="eco">
-      <div class="eco-head">
-        <div><h3>Current operating ecosystem vs. our solution</h3>
-        <p>Four organisations, each flying UAVs from several OEMs at different locations. Toggle the view.</p></div>
-        <div class="switch" role="tablist" aria-label="Ecosystem view">
-          <button role="tab" id="swToday" aria-selected="true">Today</button>
-          <button role="tab" id="swUnified" aria-selected="false">With DeroMiC</button>
-          <span class="switch-thumb" aria-hidden="true"></span>
-        </div>
-      </div>
-      <div class="eco-stage" id="ecoStage" data-mode="today">
-        <svg id="ecoSvg" viewBox="0 0 900 460" role="img" aria-label="Network diagram of four organisations, each with three OEM platforms. Today they are fragmented with no shared picture. With DeroMiC all are linked into one unified operating picture."></svg>
-        <div class="eco-caption" id="ecoCap" aria-live="polite"></div>
-      </div>
-    </div>
-
-    <header class="sec-head" id="the-gap" style="margin-top:120px"><span class="idx">&mdash;</span><h2 data-split>Operations are scaling. Coordination is <em>not.</em></h2></header>
-    <p class="lead reveal" style="margin-bottom:48px">More missions, more applications, more OEM platforms and more locations multiply the work of keeping every aircraft and team in step.</p>
-    <div class="rows gap-rows">
-      <div class="row head" aria-hidden="true"><span></span><span>Gap</span><span>What operators face today</span><span>What it costs</span></div>
-      <article class="row reveal"><span class="n">01</span><h4>Fragmented fleets</h4><p>Each vendor brings its own closed ground station and data link.</p><p class="cost">No single operating picture</p></article>
-      <article class="row reveal"><span class="n">02</span><h4>Broken coordination</h4><p>Multi-UAV, multi-mission tasking done by hand across consoles.</p><p class="cost">Slow response and airspace conflict</p></article>
-      <article class="row reveal"><span class="n">03</span><h4>Fragile distribution</h4><p>Field teams depend on central links that degrade or drop.</p><p class="cost">Missions stall at the edge</p></article>
-      <article class="row reveal"><span class="n">04</span><h4>No governance</h4><p>Weak authority oversight, audit trails and role control.</p><p class="cost">Compliance and accountability risk</p></article>
-      <article class="row reveal"><span class="n">05</span><h4>Slow mobility</h4><p>Bulky cases and lengthy setup.</p><p class="cost">Delayed deployment when time matters</p></article>
-      <article class="row reveal"><span class="n">06</span><h4>Pilot burden</h4><p>A different controller and interface for every OEM.</p><p class="cost">More training and more switching errors</p></article>
-    </div>
-    <p class="pull" data-split>The next challenge is not drone performance. It is <em>coordinating many drones at scale.</em></p>
-
-    <header class="sec-head" id="how-it-works"><span class="idx">&mdash;</span><h2 data-split>From the authority&rsquo;s rules to the field&rsquo;s <em>evidence.</em></h2></header>
-    <p class="lead reveal" style="margin-bottom:56px">DeroMiC is not another ground station, fleet dashboard or UTM tool. It is the infrastructure underneath them.</p>
-    <div class="life" id="life">
-      <div class="life-track"><div class="life-fill" id="lifeFill"></div></div>
-      <ol class="life-steps">
-        <li><span class="dot">1</span><h4>Govern</h4><p>The authority sets rules, permissions and constraints.</p></li>
-        <li><span class="dot">2</span><h4>Plan</h4><p>Organisations assign missions, teams, UAVs and areas.</p></li>
-        <li><span class="dot">3</span><h4>Execute</h4><p>Missions run in the field within those rules.</p></li>
-        <li><span class="dot">4</span><h4>Oversee &amp; Audit</h4><p>Mission evidence flows back for live view, replay and audit.</p></li>
-      </ol>
-    </div>
-
-    <div class="split" id="deromic-features">
-      <div>
-        <h3 class="sub reveal">Features</h3>
-        <ul class="list">
-          <li class="reveal"><span>01</span><div><b>Multi-OEM operations</b>Plan and oversee missions across integrated platforms from different makers.</div></li>
-          <li class="reveal"><span>02</span><div><b>Multi-UAV, multi-mission tasking</b>Assign and track many missions without switching consoles.</div></li>
-          <li class="reveal"><span>03</span><div><b>Multi-location coordination</b>Coordinate teams and aircraft across distributed sites.</div></li>
-          <li class="reveal"><span>04</span><div><b>Works at the edge</b>Missions continue in the field when links degrade.</div></li>
-          <li class="reveal"><span>05</span><div><b>Rules and roles built in</b>Permissions and constraints apply to every mission.</div></li>
-          <li class="reveal"><span>06</span><div><b>Live view, replay and audit</b>Every mission is visible as it happens and recorded after.</div></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="sub reveal">Advantages</h3>
-        <ul class="list">
-          <li class="reveal"><span>01</span><div><b>One operating picture</b>Unified operational visibility across integrated OEM platforms.</div></li>
-          <li class="reveal"><span>02</span><div><b>Faster, safer response</b>Supports governed mission coordination and deconfliction.</div></li>
-          <li class="reveal"><span>03</span><div><b>Lower pilot workload</b>Less switching between OEM controllers and interfaces.</div></li>
-          <li class="reveal"><span>04</span><div><b>Accountability by design</b>Compliance and evidence come with every mission, not after it.</div></li>
-          <li class="reveal"><span>05</span><div><b>Freedom from vendor lock-in</b>Add aircraft from new OEMs without rebuilding your operation.</div></li>
-          <li class="reveal"><span>06</span><div><b>Sovereign technology</b>Indian-owned IP, designed and developed in India for Indian operational and policy needs.</div></li>
-        </ul>
-      </div>
-    </div>
-    <div class="cta-inline reveal">
-      <p><b>Demonstrations</b> open for requests from government, PSU, defence and critical-infrastructure operators.</p>
-      <a class="btn btn-accent" href="#contact">See DeroMiC run a multi-OEM mission <span class="arr">&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- dXCALE -->
-<section id="dxcale">
-  <div class="wrap">
-    <header class="sec-head"><span class="idx">02</span><p class="label">Mission Air Systems</p></header>
-    <h2 class="mega" data-split>Mobilise UAV <em>Capability.</em></h2>
-    <p class="lead reveal">Rapid-mobility &amp; deployment UAV systems for critical time windows. When minutes decide the outcome.</p>
-
-    <div class="golden reveal" id="golden">
-      <div class="golden-copy">
-        <h3>The Golden Minutes</h3>
-        <p>The first minutes after an incident are the most valuable, in defence and civil operations alike. Aerial eyes that arrive in the Golden Minutes change the outcome; aerial eyes that arrive later mostly record it.</p>
-        <p class="note">Illustrative concept chart, not measured data.</p>
-      </div>
-      <svg id="goldenSvg" viewBox="0 0 640 320" role="img" aria-label="Illustrative chart: the value of aerial eyes falls as time after an incident passes. dXcale gets airborne inside the Golden Minutes; conventional drones arrive after.">
-        <g stroke="#0E1726" stroke-opacity=".08"><path d="M60 80H610M60 140H610M60 200H610M180 20V260M300 20V260M420 20V260M540 20V260"/></g>
-        <rect class="gz" x="60" y="20" width="180" height="240"/>
-        <text x="72" y="40" class="gl">GOLDEN MINUTES</text>
-        <path d="M60 260H610M60 20V260" stroke="#0E1726" stroke-width="1.5" fill="none"/>
-        <path id="gArea" d="M60 40C130 60 190 150 300 210S520 250 610 255V260H60Z" fill="#801E62" fill-opacity=".08"/>
-        <path id="gCurve" d="M60 40C130 60 190 150 300 210S520 250 610 255" fill="none" stroke="#801E62" stroke-width="3"/>
-        <g id="gDx" opacity="0"><line x1="130" y1="30" x2="130" y2="260" stroke="#0E1726" stroke-dasharray="3 4"/><circle cx="130" cy="73" r="7" fill="#0E1726"/><text x="142" y="64" class="gt">dXcale airborne</text></g>
-        <g id="gConv" opacity="0"><line x1="450" y1="30" x2="450" y2="260" stroke="#0E1726" stroke-opacity=".4" stroke-dasharray="3 4"/><circle cx="450" cy="241" r="7" fill="#fff" stroke="#0E1726" stroke-width="2"/><text x="438" y="226" class="gt" text-anchor="end">Conventional drone arrives</text></g>
-        <text x="335" y="294" class="ga" text-anchor="middle">TIME AFTER INCIDENT &rarr;</text>
-        <text transform="translate(22 140) rotate(-90)" class="ga" text-anchor="middle">VALUE OF AERIAL EYES &rarr;</text>
-      </svg>
-    </div>
-
-    <div class="uc-grid">
-      <div class="uc reveal"><span>01</span><b>Terror attacks &amp; hostage situations</b>Commanders see the scene before teams move in.</div>
-      <div class="uc reveal" style="--d:.05s"><span>02</span><b>Natural disasters</b>After an earthquake, flood or landslide, survivors can still be located and safe routes found.</div>
-      <div class="uc reveal" style="--d:.1s"><span>03</span><b>Search and rescue</b>A missing person is still close by.</div>
-      <div class="uc reveal" style="--d:.15s"><span>04</span><b>Border &amp; perimeter security</b>An intruder is still near the fence.</div>
-      <div class="uc reveal"><span>05</span><b>Fires &amp; industrial accidents</b>A fire, gas leak or chemical spill can still be contained.</div>
-      <div class="uc reveal" style="--d:.05s"><span>06</span><b>Critical infrastructure &amp; events</b>A threat at a plant, pipeline, crowd or VIP route is checked before it escalates.</div>
-      <div class="uc reveal" style="--d:.1s"><span>07</span><b>Road &amp; public safety</b>Responders know what they face before they arrive.</div>
-      <div class="uc uc-last reveal" style="--d:.15s"><b>dXcale is built to be airborne inside the Golden Minutes.</b></div>
-    </div>
-
-    <div class="dx">
-      <div class="dx-copy">
-        <p class="patent reveal"><span class="live"></span>dXcale &middot; Patent pending, published application</p>
-        <h3 class="reveal">Drones for the Golden Minutes.</h3>
-        <p class="reveal">A complete UAV system in one field backpack that one operator carries, airborne while the moment still matters.</p>
-        <ul class="ticks">
-          <li class="reveal"><b>Mission backpack</b> &mdash; the full system packs into one field backpack.</li>
-          <li class="reveal"><b>Rapid field deployment</b> &mdash; from pack to airborne inside the critical window.</li>
-          <li class="reveal"><b>Single-operator carry</b> &mdash; built for foot patrols, vehicles and remote terrain.</li>
-          <li class="reveal"><b>Works alone or with DeroMiC</b> &mdash; fully independent, and joins coordinated operations.</li>
-        </ul>
-      </div>
-      <div class="compare-wrap reveal">
-        <div class="compare" id="compare">
-          <img src="assets/dx-b.jpg" alt="One operator carrying the complete dXcale system in a backpack in mountain terrain" loading="lazy">
-          <div class="compare-top"><img src="assets/conv-b.jpg" alt="Two people carrying a conventional drone hard case across rocky terrain" loading="lazy"></div>
-          <span class="clabel l">Conventional drones</span><span class="clabel r">dXcale</span>
-          <div class="handle" id="handle" role="slider" tabindex="0" aria-label="Compare conventional drones with dXcale" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>&harr;</span></div>
-        </div>
-        <p class="cap-note">Drag: bulky hard cases and a two-person carry, versus one backpack.</p>
-      </div>
-    </div>
-
-    <div class="stats3">
-      <div class="reveal"><strong data-count="1">0</strong><span>backpack holds the complete system</span></div>
-      <div class="reveal" style="--d:.08s"><div class="people" aria-hidden="true"><svg viewBox="0 0 24 24" class="pp"><circle cx="12" cy="7" r="4"/><path d="M4 22c0-5 4-8 8-8s8 3 8 8z"/></svg><svg viewBox="0 0 24 24" class="pp"><circle cx="12" cy="7" r="4"/><path d="M4 22c0-5 4-8 8-8s8 3 8 8z"/></svg><b>vs</b><svg viewBox="0 0 24 24" class="pp one"><circle cx="12" cy="7" r="4"/><path d="M4 22c0-5 4-8 8-8s8 3 8 8z"/></svg></div><span>operator carries it, versus a two-person case carry</span></div>
-      <div class="density reveal" style="--d:.16s"><div class="case" aria-hidden="true"><i></i><i></i><i></i><i></i></div><strong><span data-count="4">0</span>&times;</strong><span>transport density: four units in one conventional drone case footprint</span></div>
-    </div>
-
-    <div class="split">
-      <div>
-        <h3 class="sub reveal">The challenge with conventional drones</h3>
-        <ul class="xlist">
-          <li class="reveal">Packed in bulky hard cases that need two people, and often a vehicle, to move.</li>
-          <li class="reveal">Lengthy unpacking, assembly and pre-flight setup before the aircraft can fly.</li>
-          <li class="reveal">Hard to carry on foot into hills, forests, border posts or disaster zones.</li>
-          <li class="reveal">By the time the drone is airborne, the moment that mattered has often passed.</li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="sub reveal">Advantages</h3>
-        <ul class="ticks">
-          <li class="reveal"><b>Eyes on the scene sooner</b> &mdash; aerial view reaches an incident while decisions can still change the outcome.</li>
-          <li class="reveal"><b>Goes where the operator goes</b> &mdash; no vehicle-bound cases or second person needed to carry it.</li>
-          <li class="reveal"><b>More capability per vehicle</b> &mdash; four systems fit where one conventional drone case would.</li>
-          <li class="reveal"><b>Ready for coordinated operations</b> &mdash; joins DeroMiC missions when you need more than one aircraft.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="status reveal"><span class="live amber"></span><b>Status</b>Ruggedisation underway. Field trials are open for early partners.</div>
-
-    <div class="fact reveal" id="dxcale-factsheet">
-      <div class="fact-head"><h3>dXcale fact sheet</h3><p>Figures are published from measured tests only. All values to be confirmed.</p></div>
-      <dl class="spec">
-        <div><dt>Endurance</dt><dd>minutes</dd></div><div><dt>Range</dt><dd>km</dd></div><div><dt>Max take-off weight</dt><dd>kg</dd></div>
-        <div><dt>Packed system weight</dt><dd>kg</dd></div><div><dt>Backpack dimensions</dt><dd>L &times; W &times; H, cm</dd></div><div><dt>Pack-to-airborne time</dt><dd>minutes, measured</dd></div>
-        <div><dt>Payload options</dt><dd>EO / IR camera, others</dd></div><div><dt>Datalink</dt><dd>type and range</dd></div><div><dt>Navigation</dt><dd>GNSS / other</dd></div>
-        <div><dt>Wind resistance</dt><dd>m/s</dd></div><div><dt>Operating temperature</dt><dd>&deg;C range</dd></div><div><dt>Ingress protection</dt><dd>IP rating</dd></div>
-        <div><dt>Night operation</dt><dd>yes / no, payload</dd></div>
-      </dl>
-    </div>
-    <div class="cta-inline light reveal">
-      <p><b>Put dXcale in your team&rsquo;s hands.</b></p>
-      <a class="btn btn-solid" href="#contact">Request a field trial <span class="arr">&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- DRONOCATION -->
-<section class="dark" id="dronocation">
-  <div class="wrap">
-    <header class="sec-head"><span class="idx">03</span><p class="label">Dronocation by Derospace Systems</p></header>
-    <div class="two">
-      <div>
-        <h2 data-split>Prepare the <em>Operator.</em></h2>
-        <p class="lead reveal">Remote-pilot training and certification through our DGCA-authorised RPTO, plus institutional training and operational-readiness programmes for agencies and organisations.</p>
-        <p class="reveal"><b>Beyond certification.</b> Building mission-ready UAV operators and teams.</p>
-        <div class="actions reveal"><a class="btn btn-accent" href="#contact">Enquire about training <span class="arr">&rarr;</span></a><a class="btn btn-line" href="#institutional-training">Training for organisations</a></div>
-      </div>
-      <figure class="shot photo reveal"><img src="assets/training.jpg" alt="Collage of drone-operations training for police personnel: classroom sessions and outdoor flying practice" loading="lazy" width="960" height="762"></figure>
-    </div>
-
-    <div class="journey reveal">
-      <div class="jstep"><small>Step 01</small><span>Train</span><p>Classroom, simulator, practical flying</p></div>
-      <div class="jline"></div>
-      <div class="jstep"><small>Step 02</small><span>Certify</span><p>DGCA-approved syllabus &amp; certification support</p></div>
-      <div class="jline"></div>
-      <div class="jstep"><small>Step 03</small><span>Operate</span><p>Mission drills &amp; readiness assessment</p></div>
-    </div>
-
-    <div class="learn reveal">
-      <div class="ring" id="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="r-bg"/><circle cx="60" cy="60" r="52" class="r-fg"/></svg><div><strong data-count="12">0</strong><small>months</small></div></div>
-      <div>
-        <h3>Learning that continues after the course</h3>
-        <p>No one can learn and remember everything in a short course. That is why every participant gets 12 months&rsquo; access to our digital learning platform, built specifically for drone education. Lessons, videos, regulations and practice material stay available after the classroom ends, so participants can revisit any topic, anytime, from anywhere.</p>
-      </div>
-    </div>
-
-    <div class="tabs-wrap">
-      <div class="ptabs" role="tablist" aria-label="Training programmes">
-        <button role="tab" aria-selected="true" aria-controls="p1" id="t1">Remote Pilot Certification</button>
-        <button role="tab" aria-selected="false" aria-controls="p2" id="t2" tabindex="-1">Institutional Training</button>
-        <button role="tab" aria-selected="false" aria-controls="p3" id="t3" tabindex="-1">Operational Capability Development</button>
-      </div>
-      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
-        <p class="lead2" id="remote-pilot-certification">DGCA-authorised training to earn your Remote Pilot Certificate.</p>
-        <div class="split">
-          <div><h4>Features</h4><ul class="ticks"><li>DGCA-approved syllabus</li><li>Classroom, simulator and practical flying</li><li>Certified instructors</li><li>Assessment and certification support</li><li>12 months&rsquo; access to our digital learning platform</li></ul></div>
-          <div><h4>Advantages</h4><ul class="ticks"><li>A recognised certificate to fly legally and professionally</li><li>Flying skills you can use from day one</li><li>Training from a team that builds UAV systems</li></ul></div>
-        </div>
-      </div>
-      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-        <p class="lead2" id="institutional-training">Custom programmes for police, armed forces, utilities, PSUs and enterprises.</p>
-        <div class="split">
-          <div><h4>Features</h4><ul class="ticks"><li>Programmes designed around your missions and aircraft</li><li>On-site or at our training facility</li><li>Group certification</li><li>SOP and safety-procedure training</li></ul></div>
-          <div><h4>Advantages</h4><ul class="ticks"><li>Your whole team trained to one standard</li><li>Faster path from purchase to operation</li><li>Training matched to your equipment and rules</li></ul></div>
-        </div>
-      </div>
-      <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
-        <p class="lead2" id="operational-capability-development">From certified pilots to mission-ready teams.</p>
-        <div class="split">
-          <div><h4>Features</h4><ul class="ticks"><li>Mission drills and scenario exercises</li><li>Multi-UAV and multi-team coordination practice</li><li>Readiness assessment with gap reports</li><li>Refresher and recurrent training</li></ul></div>
-          <div><h4>Advantages</h4><ul class="ticks"><li>Confidence in real conditions, not only test conditions</li><li>Readiness you can measure and report</li><li>Capability that keeps pace with new aircraft and rules</li></ul></div>
-        </div>
-      </div>
-    </div>
-    <p class="authorised reveal"><span class="seal">DGCA</span>DGCA-authorised Remote Pilot Training Organisation.</p>
-  </div>
-</section>
-
-<!-- EDITIONS -->
 <section id="editions">
   <div class="wrap">
     <header class="sec-head"><span class="idx">04</span><h2 data-split>Built for every scale of <em>UAV operations.</em></h2></header>
@@ -385,103 +129,49 @@
     <div class="reach reveal">
       <div><b>India</b>Pilot deployments and field-trial enquiries welcome.</div>
       <div><b>Global</b>International partnership and deployment enquiries welcome.</div>
-      <a class="btn btn-line dk" href="#contact">Partner with us <span class="arr">&rarr;</span></a>
+      <a class="btn btn-line dk" href="contact.html">Partner with us <span class="arr">&rarr;</span></a>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="paper2" id="about">
+<section class="paper2 teaser" id="team-teaser">
   <div class="wrap">
-    <header class="sec-head"><span class="idx">05</span><p class="label">About Derospace</p></header>
-    <h2 class="mega" data-split>Building India&rsquo;s drone-operations <em>infrastructure.</em></h2>
-    <p class="lead reveal">Derospace Systems is an Indian deep-tech company building the infrastructure that lets many drones, from many makers, operate as one coordinated system. We design our own software, edge hardware and aircraft, on Indian-owned IP, designed and developed in India.</p>
-
-    <div class="trio">
-      <div class="reveal"><b>Mission infrastructure</b>that governs, plans and oversees UAV missions across OEMs, organisations and locations, from the authority&rsquo;s rules to the field&rsquo;s evidence.</div>
-      <div class="reveal" style="--d:.1s"><b>Rapid-mobility UAV systems</b>that one operator can carry and launch within the critical time window.</div>
-      <div class="reveal" style="--d:.2s"><b>Operator training</b>including remote-pilot certification through our DGCA-authorised RPTO, preparing the people who fly and run those missions.</div>
-    </div>
-
-    <div class="view">
-      <h3 class="reveal">Our view</h3>
-      <div>
-        <p class="reveal">Drones have proven themselves. The harder problem now is coordinating them at scale: across OEMs, organisations and locations, under rules someone can audit.</p>
-        <p class="reveal">Speed is the second problem. Most capable drones still travel in bulky cases that need two people and lengthy setup, so they arrive after the moment that mattered. Capability has to move with the operator and be airborne within the Golden Minutes.</p>
-        <p class="reveal">And none of it works without people who are trained, certified and ready for real conditions, not just for a test.</p>
-        <p class="reveal view-end">These are the problems we exist to solve.</p>
-      </div>
-    </div>
-
-    <div class="mv" id="mission-vision">
-      <div class="reveal"><span>Mission</span><p>To give every authority and operator one coordinated, accountable way to run UAV missions, with the aircraft and trained people to act fast.</p></div>
-      <div class="reveal" style="--d:.1s"><span>Vision</span><p>A sovereign drone-operations ecosystem in which every UAV, from any maker, works as part of one coordinated mission.</p></div>
-    </div>
-
-    <h3 class="sub reveal" style="margin-top:96px">Recognitions and IP</h3>
-    <div class="recs">
-      <div class="reveal"><b>Patent pending</b>Published Indian Patent Application 202541104086 A (DeroMiC), plus a published application for dXcale.</div>
-      <div class="reveal" style="--d:.08s"><b>DGCA-authorised</b>Remote Pilot Training Organisation (Dronocation).</div>
-      <div class="reveal" style="--d:.16s"><b>DPIIT-recognised</b>Recognised startup under Startup India.</div>
-    </div>
-
-    <h3 class="sub reveal" id="team" style="margin-top:96px">The people behind the mission</h3>
-    <p class="muted reveal">Founders with decades across UAVs, aerospace, geospatial systems and defence-sector programmes.</p>
+    <header class="sec-head reveal"><span class="idx">05</span><h2 data-split>The people behind the <em>mission.</em></h2></header>
+    <p class="lead reveal">Founders with decades across UAVs, aerospace, geospatial systems and defence-sector programmes.</p>
     <div class="team">
-      <article class="member reveal"><span class="av">GR</span><h4>Girish Reddy</h4><p class="role">Founder &amp; CEO, Product &amp; Core Architecture</p><p>Engineer, entrepreneur and IIM Lucknow executive alumnus. Holds a granted Indian patent, with over a decade in the UAV industry; fostered an early DGCA-approved drone manufacturing startup in India.</p></article>
-      <article class="member reveal" style="--d:.08s"><span class="av">RP</span><h4>Rajesh P</h4><p class="role">Co-Founder, Business Operations</p><p>Engineer and tech entrepreneur with 25+ years in GIS, network-centric computing, image analysis and urban mapping, and over a decade of UAV industry exposure.</p></article>
-      <article class="member reveal" style="--d:.16s"><span class="av">BR</span><h4>Bernard Raja</h4><p class="role">Co-Founder, Business Development &amp; Strategic Sales</p><p>Engineer with 25+ years of global leadership across Quest Global, TAS, Axiscades-Airbus and EDS Technologies.</p></article>
-      <article class="member reveal" style="--d:.24s"><span class="av">HS</span><h4>Hrithik Shaw</h4><p class="role">Co-Founder, Systems Engineering &amp; Technology Validation</p><p>Hands-on UAV technologist across flight hardware, embedded systems, communications, integration and testing.</p></article>
+      <article class="member reveal"><span class="av">GR</span><h4>Girish Reddy</h4><p class="role">Founder &amp; CEO</p><p>Holds a granted Indian patent, with over a decade in the UAV industry.</p></article>
+      <article class="member reveal" style="--d:.08s"><span class="av">RP</span><h4>Rajesh P</h4><p class="role">Co-Founder, Business Operations</p><p>25+ years in GIS, network-centric computing and urban mapping.</p></article>
+      <article class="member reveal" style="--d:.16s"><span class="av">BR</span><h4>Bernard Raja</h4><p class="role">Co-Founder, Business Development</p><p>25+ years of global leadership across aerospace engineering firms.</p></article>
+      <article class="member reveal" style="--d:.24s"><span class="av">HS</span><h4>Hrithik Shaw</h4><p class="role">Co-Founder, Systems Engineering</p><p>Flight hardware, embedded systems, integration and testing.</p></article>
     </div>
+    <div class="actions reveal"><a class="btn btn-solid" href="about.html">Read about Derospace <span class="arr">&rarr;</span></a></div>
   </div>
 </section>
-
-<!-- NEWS -->
-<section id="news" class="news">
+<section class="teaser news-teaser">
   <div class="wrap">
-    <header class="sec-head"><span class="idx">06</span><h2 data-split>News &amp; Milestones</h2></header>
-    <p class="lead reveal">Milestones, awards and recognition, intellectual property, media coverage and events from Derospace Systems.</p>
-    <div class="empty reveal">Nothing here yet. Check back soon.</div>
+    <header class="sec-head reveal"><span class="idx">06</span><h2 data-split>News &amp; <em>Milestones.</em></h2></header>
+    <p class="lead reveal">Milestones, recognition, intellectual property and media from Derospace Systems.</p>
+    <div class="actions reveal"><a class="btn btn-line" href="news.html">View all news &amp; milestones <span class="arr">&rarr;</span></a></div>
+  </div>
+</section>
+<section class="cta-final">
+  <div class="wrap">
+    <h2 data-split>Run your next field trial <em>with us.</em></h2>
+    <p class="lead reveal">We offer no-cost, no-commitment field trials to selected government, PSU and critical-infrastructure operators.</p>
+    <div class="actions reveal"><a class="btn btn-accent" href="contact.html">Request a field trial <span class="arr">&rarr;</span></a><a class="btn btn-line" href="contact.html">Talk to us</a></div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="cta-band" id="contact">
-  <div class="wrap two contact">
-    <div>
-      <p class="label light">Talk to us</p>
-      <h2 data-split>Run your next field trial <em>with us.</em></h2>
-      <p class="lead reveal">We offer no-cost, no-commitment field trials to selected government, PSU and critical-infrastructure operators. Tell us about your operation and we&rsquo;ll suggest a demonstration, a field trial or a training programme.</p>
-      <dl class="contact-list reveal">
-        <div><dt>Email</dt><dd><a href="mailto:contact@derospacesystems.com">contact@derospacesystems.com</a></dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:+911234567890">+91 12345 67890</a></dd></div>
-        <div><dt>Location</dt><dd>Bengaluru, India</dd></div>
-        <div><dt>International</dt><dd>Enquiries welcome from outside India</dd></div>
-      </dl>
-    </div>
-    <form class="form reveal" id="form" novalidate>
-      <label>Name<input name="name" required autocomplete="name"></label>
-      <div class="row2"><label>Organisation<input name="org" autocomplete="organization"></label><label>Role<input name="role" autocomplete="organization-title"></label></div>
-      <label>Enquiry
-        <select name="type"><option>DeroMiC demonstration</option><option>dXcale field trial</option><option>DRONOCATION training</option><option>Partnership in India</option><option>International partnership</option><option>Other</option></select>
-      </label>
-      <div class="row2"><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
-      <label>Message<textarea name="msg" rows="4"></textarea></label>
-      <button class="btn btn-solid" type="submit">Send enquiry <span class="arr">&rarr;</span></button>
-      <p class="form-msg" id="formMsg" role="status"></p>
-    </form>
-  </div>
-</section>
 </main>
 
 <footer class="site-foot">
   <div class="wrap">
     <p class="foot-big">Mission systems<br>for the <em>UAV era.</em></p>
     <div class="foot-grid">
-      <div><h5>Company</h5><a href="#about">About Us</a><a href="#mission-vision">Mission &amp; Vision</a><a href="#team">Team</a><a href="#news">News &amp; Milestones</a></div>
-      <div><h5>Products</h5><a href="#deromic">DeroMiC</a><a href="#dxcale">dXcale</a><a href="#remote-pilot-certification">Remote Pilot Certification</a><a href="#institutional-training">Institutional Training</a><a href="#operational-capability-development">Operational Capability Development</a></div>
-      <div><h5>Editions</h5><a href="#editions">Defence &amp; National Security</a><a href="#editions">Government / PSU</a><a href="#editions">Private Enterprise</a><a href="#editions">Global partners</a></div>
-      <div><h5>Contact</h5><a href="mailto:contact@derospacesystems.com">Email us</a><a href="tel:+911234567890">+91 12345 67890</a><a href="#contact">Request a demo</a></div>
+      <div><h5>Company</h5><a href="about.html">About Us</a><a href="about.html#mission-vision">Mission &amp; Vision</a><a href="about.html#team">Team</a><a href="news.html">News &amp; Milestones</a></div>
+      <div><h5>Products</h5><a href="mission-infrastructure.html">DeroMiC</a><a href="mission-air-systems.html">dXcale</a><a href="dronocation.html#remote-pilot-certification">Remote Pilot Certification</a><a href="dronocation.html#institutional-training">Institutional Training</a><a href="dronocation.html#operational-capability-development">Operational Capability Development</a></div>
+      <div><h5>Editions</h5><a href="index.html#editions">Defence &amp; National Security</a><a href="index.html#editions">Government / PSU</a><a href="index.html#editions">Private Enterprise</a><a href="index.html#editions">Global partners</a></div>
+      <div><h5>Contact</h5><a href="mailto:contact@derospacesystems.com">Email us</a><a href="tel:+911234567890">+91 12345 67890</a><a href="contact.html">Request a demo</a></div>
     </div>
     <div class="foot-base"><span>&copy; 2026 Derospace Systems. Patent pending. DGCA-authorised RPTO. DPIIT-recognised.</span><span>Privacy policy</span></div>
   </div>
