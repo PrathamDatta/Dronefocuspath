@@ -620,3 +620,10 @@ a.ed:hover .cap-go b{background:#fff;color:var(--maroon);transform:rotate(-45deg
   .form{padding:24px}
   .phero-card{padding:34px 22px 30px}
 }
+
+/* ---- overflow guards (keep the page and menu button inside small phone screens) ---- */
+html{overflow-x:hidden}
+.two>*,.split>*,.golden>*,.dx>*,.learn>*,.view>*,.mv>*,.trio>*,.row2>*,.form>*,.bento>*{min-width:0}
+@media(max-width:960px){.two{grid-template-columns:minmax(0,1fr)}}
+.contact-list dd,.contact-list a{overflow-wrap:anywhere}
+.form input,.form select,.form textarea{min-width:0;max-width:100%}
