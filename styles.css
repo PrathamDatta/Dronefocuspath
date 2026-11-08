@@ -568,3 +568,55 @@ a.ed:hover .cap-go b{background:#fff;color:var(--maroon);transform:rotate(-45deg
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none;filter:none}.w>span{opacity:1;transform:none;filter:none}
 }
+
+/* ---- mobile type scale (phones) ---- */
+@media(max-width:600px){
+  body{font-size:16px}
+  .lead{font-size:16.5px;margin-top:18px}
+  h2{font-size:28px;line-height:1.08}
+  h3{font-size:21px}
+  h4{font-size:18px}
+  .hero2{padding-top:112px}
+  .hero2-title{font-size:36px;line-height:1.04;margin-bottom:18px}
+  .hero2-sub{font-size:16.5px}
+  .pill-badge{font-size:12px;padding:8px 14px;text-align:center}
+  .page-title{font-size:32px;line-height:1.04;margin-bottom:16px}
+  .hero-sub{font-size:16px}
+  .big{font-size:26px;margin-bottom:40px}
+  .stats4 strong{font-size:40px}
+  .stats4>div{padding:22px}
+  .stats3 strong{font-size:52px}
+  .stats3>div{min-height:0;padding:26px}
+  .pull{font-size:28px;margin:70px auto 80px}
+  .cta-final h2{font-size:32px}
+  .cta-final,.cta-band{padding:80px 0}
+  .h2s{font-size:32px}
+  .foot-big{font-size:34px;margin-bottom:44px}
+  .bcard{padding:24px;border-radius:32px}
+  .b-lg h3{font-size:28px}
+  .bcard h3{font-size:24px}
+  .b-fit p{font-size:17px}
+  .jstep span{font-size:30px;margin:22px 0 10px}
+  .life-steps h4{font-size:22px}
+  .row h4{font-size:19px}
+  .ring{width:140px;height:140px}.ring strong{font-size:46px}
+  .golden h3,.dx h3{font-size:26px}
+  .fact h3{font-size:24px}
+  .sub{font-size:22px}
+  .view p{font-size:17px}.view .view-end{font-size:24px}
+  .mv p{font-size:20px}.mv>div{padding:28px 24px;min-height:0}
+  .ed h3{font-size:22px;padding-top:36px}.ed{min-height:0;padding:26px}
+  .ex b{font-size:20px}.ex{min-height:0;padding:24px}
+  .uc b{font-size:17px}
+  .faq-item summary{font-size:16.5px;padding:18px 0}.faq-a p{font-size:15.5px}
+  .btn{font-size:14.5px}
+  .nav-top{font-size:20px}
+  .chip{font-size:12px;padding:8px 12px}
+  .big-ticks li{font-size:17px}
+  .trust{font-size:13px}
+  .trio b,.recs b{font-size:19px}
+  .member h4{font-size:21px}
+  .contact-list>div{grid-template-columns:96px 1fr}
+  .form{padding:24px}
+  .phero-card{padding:34px 22px 30px}
+}
