@@ -96,15 +96,13 @@ section{padding:140px 0;position:relative}
 .menu-btn[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.7px) rotate(-45deg)}
 @media(max-width:1120px){
   .menu-btn{display:flex}
-  .nav{position:fixed;inset:76px 0 0 0;background:#fff;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:12px 28px 40px;overflow-y:auto;clip-path:inset(0 0 100% 0);transition:clip-path .55s var(--ease)}
-  .nav.open{clip-path:inset(0)}
+  .nav{position:fixed;inset:76px 0 0 0;background:#fff;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:12px 28px 40px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .3s,transform .45s var(--ease),visibility .3s}
+  .nav.open{opacity:1;visibility:visible;transform:none}
   .nav-group{flex-wrap:wrap;border-bottom:1px solid var(--rule)}
   .nav-top{font-size:26px;font-weight:600;letter-spacing:-.03em;padding:16px 0;flex:1}
   .nav-top::after{display:none}
-  .caret{width:44px;height:44px;margin:0}
-  .caret::before{left:19px;top:15px}
-  .dd{position:static;opacity:1;visibility:visible;transform:none;padding:0;min-width:0;width:100%;display:none}
-  .nav-group.open .dd{display:block}
+  .caret{display:none}
+  .dd{position:static;opacity:1;visibility:visible;transform:none;padding:0;min-width:0;width:100%;display:block}
   .dd-in{box-shadow:none;border:0;padding:0 0 14px 4px;border-left:2px solid var(--maroon)}
   .dd a{padding:10px 14px}
   .nav-cta{margin:24px 0 0;justify-content:center;font-size:16px;padding:18px}
