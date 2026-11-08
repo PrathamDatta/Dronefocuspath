@@ -560,3 +560,20 @@ a.ed:hover .cap-go{border-color:#FFFFFF40}
 .cta-final .btn-accent:hover{color:var(--maroon)}
 .page-hero .label{flex-wrap:wrap}
 @media(max-width:700px){.brand-logo{height:28px}.explore{padding:70px 0}}
+
+/* ---- SEO/GEO additions ---- */
+.skip{position:fixed;left:16px;top:-80px;z-index:100;background:var(--maroon);color:#fff;padding:12px 18px;font-weight:600;transition:top .2s}
+.skip:focus{top:16px}
+main:focus{outline:none}
+.faq{padding:110px 0;background:var(--paper2)}
+.faq-list{border-top:1px solid var(--rule2);max-width:920px}
+.faq-item{border-bottom:1px solid var(--rule2)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 4px;font-size:clamp(18px,2vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.25;transition:color .25s}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--maroon)}
+.faq-item summary i{flex:none;position:relative;width:22px;height:22px}
+.faq-item summary i::before,.faq-item summary i::after{content:"";position:absolute;left:3px;right:3px;top:10px;height:2px;background:var(--maroon);transition:transform .35s var(--ease)}
+.faq-item summary i::after{transform:rotate(90deg)}
+.faq-item[open] summary i::after{transform:rotate(0)}
+.faq-a{padding:0 4px 26px;max-width:72ch;color:var(--ink2);animation:panel .5s var(--ease)}
+.faq-a p{margin:0;font-size:17px;line-height:1.6}

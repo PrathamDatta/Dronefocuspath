@@ -1,0 +1,35 @@
+# Derospace Systems
+
+> Derospace Systems is an Indian deep-tech company (Bengaluru, India) building the infrastructure that lets many drones, from many makers, operate as one coordinated system. It offers DeroMiC mission infrastructure, dXcale rapid-deployment UAV systems, and operator training through Dronocation, its DGCA-authorised Remote Pilot Training Organisation. Indian-owned IP, designed and developed in India. DPIIT-recognised startup.
+
+Key facts:
+- Tagline: Mission Systems for the UAV Era. Built in India, for the world.
+- DeroMiC: patent pending (Indian Patent Application 202541104086 A). Not a ground station; the infrastructure underneath ground stations, fleet dashboards and UTM tools.
+- dXcale: patent pending (published application). Complete UAV system in one backpack carried by one operator. Specifications are to be confirmed; field trials open to early partners.
+- Dronocation: DGCA-authorised RPTO. Participants get 12 months of digital learning platform access.
+- Contact: contact@derospacesystems.com
+
+## Products
+- [DeroMiC](https://derospacesystems.com/deromic.html): DeroMiC is a patent-pending mission ecosystem to govern, plan and oversee multi-OEM, multi-UAV, multi-location drone operations, with live view, replay and audit.
+- [dXcale](https://derospacesystems.com/dxcale.html): dXcale packs a complete UAV system into one field backpack that a single operator carries, built to be airborne inside the Golden Minutes. Field trials are open.
+- [Mission Infrastructure](https://derospacesystems.com/mission-infrastructure.html): Unified mission infrastructure to govern, plan, command, execute, oversee and audit UAV missions across OEMs, organisations and locations.
+- [Mission Air Systems](https://derospacesystems.com/mission-air-systems.html): Rapid-mobility UAV systems for critical time windows: a complete drone system one operator can carry and launch within the Golden Minutes of an incident.
+
+## Training (Dronocation)
+- [Dronocation](https://derospacesystems.com/dronocation.html): Dronocation by Derospace Systems is a DGCA-authorised RPTO offering remote pilot certification, institutional training and operational capability development.
+- [Remote Pilot Certification](https://derospacesystems.com/remote-pilot-certification.html): DGCA-authorised remote pilot training: approved syllabus, classroom, simulator and practical flying, certified instructors and 12 months of digital learning access.
+- [Institutional Training](https://derospacesystems.com/institutional-training.html): Custom UAV training for police, armed forces, utilities, PSUs and enterprises, on-site or at our facility, with group certification and SOP training.
+- [Operational Capability Development](https://derospacesystems.com/operational-capability-development.html): From certified pilots to mission-ready teams: mission drills, multi-UAV coordination practice, readiness assessments with gap reports and recurrent training.
+
+## DeroMiC editions
+- [Editions overview](https://derospacesystems.com/editions.html): One mission infrastructure configured for defence and national security, government and PSU, and private enterprise UAV operations.
+- [Defence & National Security Edition](https://derospacesystems.com/defence-national-security.html): DeroMiC configured for armed forces, paramilitary, border and homeland security units: defence command structures, operational security and sovereign deployments.
+- [Government / PSU Edition](https://derospacesystems.com/government-psu.html): DeroMiC for police, disaster management, utilities and PSUs: departmental governance, jurisdiction-based operations, multi-agency coordination and accountability.
+- [Private Enterprise Edition](https://derospacesystems.com/private-enterprise.html): DeroMiC for infrastructure, energy, mining and drone-service operators: multi-site operations, commercial workflows and scalable UAV deployments.
+
+## Company
+- [About Derospace Systems](https://derospacesystems.com/about.html): Derospace Systems is a Bengaluru-based Indian deep-tech company building software, edge hardware and aircraft so many makers' drones operate as one system.
+- [Mission & Vision](https://derospacesystems.com/mission-vision.html): Our mission: one coordinated, accountable way to run UAV missions. Our vision: a sovereign drone-operations ecosystem where every UAV works as one mission.
+- [Founders & Team](https://derospacesystems.com/team.html): Meet the founders of Derospace Systems: Girish Reddy, Rajesh P, Bernard Raja and Hrithik Shaw, with decades across UAVs, aerospace, GIS and defence programmes.
+- [News & Milestones](https://derospacesystems.com/news.html): Milestones, awards, intellectual property, media coverage and events from Derospace Systems.
+- [Contact & Request a Demo](https://derospacesystems.com/contact.html): Request a DeroMiC demonstration, a dXcale field trial or Dronocation training. Derospace Systems, Bengaluru, India; international enquiries welcome.
