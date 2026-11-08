@@ -29,9 +29,13 @@ var h1=$('.hero-title');if(h1)h1.style.setProperty('--base','.15s');
 
 /* ---------- header, progress, menu ---------- */
 var head=$('.site-head'),prog=$('#progress'),nav=$('#nav'),menuBtn=$('#menuBtn');
+var lastY=0;
 function onScroll(){
   var y=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
   head.classList.toggle('scrolled',y>30);
+  if(!nav.classList.contains('open')){head.classList.toggle('hide',y>lastY+4&&y>260);}
+  if(y<lastY-4)head.classList.remove('hide');
+  lastY=y;
   prog.style.transform='scaleX('+(h>0?y/h:0)+')';
 }
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
@@ -78,7 +82,8 @@ if(cyc&&!reduce){
 /* ---------- hero: multi-OEM route chart converging on one mission context ---------- */
 (function(){
   var svg=$('#chart');if(!svg)return;
-  var HUB={x:1110,y:430};
+  var center=svg.dataset.layout==='center';
+  var HUB=center?{x:720,y:450}:{x:1110,y:430};
   var gGrid=el('g',{'class':'grid layer'},svg),gCont=el('g',{'class':'layer'},svg),gRoute=el('g',{'class':'layer'},svg);
   var i,x,y;
   for(x=0;x<=1440;x+=80)el('line',{x1:x,y1:0,x2:x,y2:900},gGrid);
@@ -91,10 +96,15 @@ if(cyc&&!reduce){
     }
     return d+'Z';
   }
-  [[HUB.x,HUB.y,15,36,.4],[1330,760,9,34,2.2],[760,780,7,36,4.1]].forEach(function(c){
+  (center?[[HUB.x,HUB.y,16,34,.4]]:[[HUB.x,HUB.y,15,36,.4],[1330,760,9,34,2.2],[760,780,7,36,4.1]]).forEach(function(c){
     for(var k=0;k<c[2];k++)el('path',{d:blob(c[0],c[1],26+k*c[3],c[4]+k*.12,80),'class':'contour'+(k%4===0?' major':'')},gCont);
   });
-  var routes=[
+  var routes=center?[
+    {d:'M110 740 C300 690 520 570 '+HUB.x+' '+HUB.y,l:'OEM 1'},
+    {d:'M1330 740 C1140 690 920 570 '+HUB.x+' '+HUB.y,l:'OEM 2'},
+    {d:'M110 160 C300 210 520 330 '+HUB.x+' '+HUB.y,l:'OEM 3'},
+    {d:'M1330 160 C1140 210 920 330 '+HUB.x+' '+HUB.y,l:'OEM 4'}
+  ]:[
     {d:'M560 840 C760 800 940 640 '+HUB.x+' '+HUB.y,l:'OEM 1'},
     {d:'M1440 780 C1340 720 1230 560 '+HUB.x+' '+HUB.y,l:'OEM 2'},
     {d:'M900 40 C980 190 1050 300 '+HUB.x+' '+HUB.y,l:'OEM 3'},
@@ -123,8 +133,8 @@ if(cyc&&!reduce){
   el('circle',{cx:HUB.x,cy:HUB.y,r:28,'class':'hub-ring'},gRoute);
   el('circle',{cx:HUB.x,cy:HUB.y,r:28,'class':'hub-ring r3'},gRoute);
   el('circle',{cx:HUB.x,cy:HUB.y,r:9,'class':'hub-core'},gRoute);
-  var t1=el('text',{x:HUB.x+22,y:HUB.y+34},gRoute);t1.textContent='DEROMIC';
-  var t2=el('text',{x:HUB.x+22,y:HUB.y+50},gRoute);t2.textContent='ONE MISSION CONTEXT';
+  var t1=el('text',{x:HUB.x+22,y:HUB.y+(center?-14:34)},gRoute);t1.textContent='DEROMIC';
+  var t2=el('text',{x:HUB.x+22,y:HUB.y+(center?2:50)},gRoute);t2.textContent='ONE MISSION CONTEXT';
 
   /* parallax + live coordinates */
   var hero=svg.parentNode,co=$('#coords');
@@ -246,4 +256,23 @@ if(cyc&&!reduce){
     m.textContent='Opening your email app to send the enquiry…';
   });
 })();
+
+/* ---------- tilt + spotlight on cards, magnetic buttons (fine pointers only) ---------- */
+if(window.matchMedia('(pointer:fine)').matches&&!reduce){
+  $$('.tilt').forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      c.style.setProperty('--mx',(x*100)+'%');c.style.setProperty('--my',(y*100)+'%');
+      c.style.transform='perspective(900px) rotateX('+((.5-y)*5)+'deg) rotateY('+((x-.5)*6)+'deg) translateY(-6px)';
+    });
+    c.addEventListener('pointerleave',function(){c.style.transform=''});
+  });
+  $$('.btn').forEach(function(b){
+    b.addEventListener('pointermove',function(e){
+      var r=b.getBoundingClientRect();
+      b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.12)+'px,'+((e.clientY-r.top-r.height/2)*.2)+'px)';
+    });
+    b.addEventListener('pointerleave',function(){b.style.transform=''});
+  });
+}
 })();
