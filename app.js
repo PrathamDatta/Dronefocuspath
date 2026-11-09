@@ -276,3 +276,59 @@ if(window.matchMedia('(pointer:fine)').matches&&!reduce){
   });
 }
 })();
+
+/* ---------- DESIGN 3: flying drones ---------- */
+(function(){
+  'use strict';
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)return;
+  var fine=window.matchMedia('(pointer:fine)').matches;
+
+  /* hero drone tilts toward the pointer */
+  var stages=Array.prototype.slice.call(document.querySelectorAll('.stage'));
+  if(fine&&stages.length){
+    document.addEventListener('pointermove',function(e){
+      stages.forEach(function(st){
+        var r=st.getBoundingClientRect();
+        if(r.bottom<0||r.top>innerHeight)return;
+        var mx=(e.clientX-(r.left+r.width/2))/innerWidth,my=(e.clientY-(r.top+r.height/2))/innerHeight;
+        st.style.setProperty('--rx',(36-my*26)+'deg');
+        st.style.setProperty('--rz',(-9+mx*34)+'deg');
+      });
+    },{passive:true});
+  }
+
+  /* progress drone rides the scroll bar */
+  var pd=document.getElementById('pdrone');
+  function prog(){
+    if(!pd)return;
+    var h=document.documentElement.scrollHeight-innerHeight,p=h>0?scrollY/h:0;
+    pd.style.left=(p*100)+'%';pd.classList.toggle('on',scrollY>8);
+  }
+  window.addEventListener('scroll',prog,{passive:true});prog();
+
+  /* companion drone: follows the cursor on desktop, glides down the right edge on touch screens */
+  var buddy=document.getElementById('buddy');if(!buddy)return;
+  var svg=buddy.querySelector('svg');
+  var x=innerWidth-90,y=140,tx=x,ty=y,t=0,started=false,lastX=x;
+  function start(){if(!started){started=true;buddy.classList.add('on')}}
+  if(fine){
+    document.addEventListener('pointermove',function(e){tx=e.clientX+38;ty=e.clientY+30;start()},{passive:true});
+    document.addEventListener('pointerleave',function(){tx=innerWidth-90;ty=innerHeight-120});
+    setTimeout(start,1200);
+  }else{
+    var follow=function(){
+      var h=document.documentElement.scrollHeight-innerHeight,p=h>0?scrollY/h:0;
+      tx=innerWidth-46+Math.sin(scrollY/160)*10;ty=100+p*(innerHeight-230);start();
+    };
+    window.addEventListener('scroll',follow,{passive:true});follow();
+  }
+  (function loop(){
+    t+=16;
+    x+=(tx-x)*.075;y+=(ty-y)*.075;
+    var vx=tx-x,rot=Math.max(-26,Math.min(26,vx*.22));
+    buddy.style.transform='translate('+(x-28)+'px,'+(y-28+Math.sin(t/380)*4)+'px)';
+    svg.style.transform='rotate('+rot+'deg) scale('+(1+Math.min(Math.abs(vx)/700,.14))+')';
+    requestAnimationFrame(loop);
+  })();
+})();
