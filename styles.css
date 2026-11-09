@@ -758,3 +758,71 @@ a.ed:hover{border-top-color:#fff}
 .dcard .b-go .btn-ic{background:var(--maroon);color:#fff}
 .dcard:hover .b-go .btn-ic{transform:rotate(-45deg)}
 .dc-hi .b-kind{color:var(--skyl)}
+
+/* ---- DESIGN 3b: dark hero with a dimmed photo + large semi-transparent flying drone behind the text ---- */
+.hero3,.phero3{background:#2A0A21;color:#fff}
+.hero3 .cloud,.phero3 .cloud{display:none}
+.hero3 .sky::before,.phero3 .sky::before{content:"";position:absolute;inset:0;background:url("assets/dx-b.jpg") 72% 38%/cover no-repeat;opacity:.3;filter:grayscale(.45) contrast(1.08)}
+.hero3 .sky::after,.phero3 .sky::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(42,10,33,.94) 0%,rgba(42,10,33,.62) 52%,rgba(74,18,57,.28) 100%),
+  repeating-linear-gradient(0deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px),
+  repeating-linear-gradient(90deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px)}
+.hero3::after,.phero3::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;z-index:3;pointer-events:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'><path d='M0 40C240 4 480 4 720 30S1200 66 1440 22V70H0Z' fill='white'/></svg>") bottom/100% 100% no-repeat}
+
+/* copy */
+.hero3-grid,.phero3-grid{position:static;display:block}
+.hero3-copy,.phero3-copy{position:relative;z-index:3}
+.hero3-title,.page-title{color:#fff}
+.hero3 em,.phero3 em{color:var(--skyl);background-image:linear-gradient(transparent 70%,rgba(56,182,255,.4) 70%)}
+.hero3 .hero2-sub,.phero3 .hero-sub{color:rgba(255,255,255,.82)}
+.hero3 .pill-badge,.phero3 .crumb-pill{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.22);box-shadow:none;backdrop-filter:blur(6px)}
+.phero3 .crumb-pill a{color:#fff;border-bottom-color:rgba(255,255,255,.4)}
+.hero3 .trust{color:rgba(255,255,255,.78)}
+.hero3 .trust b{background:rgba(255,255,255,.12);color:var(--skyl)}
+.hero3 .btn-solid,.phero3 .btn-solid{background:#fff;color:var(--maroon);box-shadow:0 16px 34px -14px rgba(0,0,0,.5)}
+.hero3 .btn-solid .btn-ic,.hero3 .btn-solid .arr,.phero3 .btn-solid .arr{background:var(--maroon);color:#fff}
+.hero3 .btn-solid:hover,.phero3 .btn-solid:hover{background:var(--soft)}
+.hero3 .btn-line,.phero3 .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.hero3 .btn-line .btn-ic,.hero3 .btn-line .arr,.phero3 .btn-line .arr{background:rgba(255,255,255,.14)}
+.hero3 .btn-line:hover,.phero3 .btn-line:hover{background:#fff;color:var(--maroon);border-color:#fff}
+
+/* the drone: big, semi-opaque, behind the text */
+.hero3-stage,.phero3-stage{position:absolute;z-index:1;right:-2%;top:52%;transform:translateY(-50%);width:min(740px,53vw);max-width:none;margin:0;aspect-ratio:1/1;pointer-events:none}
+.phero3-stage{width:min(620px,50vw);top:50%;right:-4%}
+.hero3 .hwrap,.phero3 .hwrap{width:100%;opacity:.58}
+.hero3 .hdrone,.phero3 .hdrone{filter:drop-shadow(0 40px 30px rgba(0,0,0,.5))}
+.hero3 .d-shadow,.phero3 .d-shadow{display:none}
+.hero3 .rings i,.phero3 .rings i{border-color:rgba(56,182,255,.5)}
+.hero3 .rings i:nth-child(2),.phero3 .rings i:nth-child(2){border-color:rgba(255,255,255,.22)}
+.hero3 .rings::before,.hero3 .rings::after,.phero3 .rings::before,.phero3 .rings::after{background:rgba(56,182,255,.25)}
+
+/* link chips become a row under the hero copy */
+.hero3-chips{position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:12px;margin-top:54px}
+.hero3-chips .chip{position:static;animation:none;background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.22);backdrop-filter:blur(8px);box-shadow:none}
+.hero3-chips .chip:hover{background:#fff;color:var(--maroon)}
+.hero3-chips .chip b{background:var(--sky);color:#2A0A21}
+.hero3-chips .chip:hover b{background:var(--maroon);color:#fff}
+.hero3{padding:150px 0 130px}
+.phero3{padding:130px 0 90px}
+
+@media(max-width:900px){
+  .hero3-stage,.phero3-stage{width:130vw;right:-45vw;top:56%}
+  .phero3-stage{width:110vw;right:-38vw;top:50%;opacity:1}
+  .hero3 .hwrap,.phero3 .hwrap{opacity:.4}
+  .hero3 .sky::after,.phero3 .sky::after{background:linear-gradient(180deg,rgba(42,10,33,.88) 0%,rgba(42,10,33,.62) 100%),repeating-linear-gradient(0deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px),repeating-linear-gradient(90deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px)}
+  .hero3-chips{margin-top:36px}
+  .hero3{padding:118px 0 100px}.phero3{padding:108px 0 70px}
+}
+
+/* ---- DESIGN 3c: real drone photo as the semi-opaque hero background ---- */
+.hero3 .sky::before,.phero3 .sky::before{background:url("assets/drone-hero.jpg") 72% 24%/cover no-repeat;opacity:.62;filter:saturate(.8) contrast(1.05)}
+.hero3 .sky::after,.phero3 .sky::after{background:
+  linear-gradient(90deg,rgba(42,10,33,.95) 0%,rgba(42,10,33,.78) 38%,rgba(74,18,57,.42) 70%,rgba(74,18,57,.3) 100%),
+  repeating-linear-gradient(0deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px),
+  repeating-linear-gradient(90deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px)}
+.phero3 .sky::before{background-position:72% 30%}
+.hero3-stage,.phero3-stage{display:none}
+@media(max-width:900px){
+  .hero3 .sky::before,.phero3 .sky::before{background-position:78% 20%;opacity:.5}
+  .hero3 .sky::after,.phero3 .sky::after{background:linear-gradient(180deg,rgba(42,10,33,.9) 0%,rgba(42,10,33,.7) 100%),repeating-linear-gradient(0deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px),repeating-linear-gradient(90deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px)}
+}
