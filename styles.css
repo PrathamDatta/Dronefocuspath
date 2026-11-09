@@ -826,3 +826,96 @@ a.ed:hover{border-top-color:#fff}
   .hero3 .sky::before,.phero3 .sky::before{background-position:78% 20%;opacity:.5}
   .hero3 .sky::after,.phero3 .sky::after{background:linear-gradient(180deg,rgba(42,10,33,.9) 0%,rgba(42,10,33,.7) 100%),repeating-linear-gradient(0deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px),repeating-linear-gradient(90deg,transparent 0 79px,rgba(56,182,255,.1) 79px 80px)}
 }
+
+/* ---- DESIGN 3d: drone clearly visible + cockpit / HUD theming ---- */
+/* photo: full strength on the right, dark wash only behind the text, drone enlarged around its own position */
+.hero3 .sky::before,.phero3 .sky::before{opacity:1;filter:saturate(.95) brightness(.97);transform:scale(1.3);transform-origin:74% 26%}
+.hero3 .sky::after,.phero3 .sky::after{background:
+  linear-gradient(90deg,rgba(42,10,33,.96) 0%,rgba(42,10,33,.9) 32%,rgba(42,10,33,.42) 56%,rgba(42,10,33,0) 76%),
+  linear-gradient(0deg,rgba(42,10,33,.82) 0%,rgba(42,10,33,0) 36%),
+  repeating-linear-gradient(0deg,transparent 0 79px,rgba(255,255,255,.07) 79px 80px),
+  repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.07) 79px 80px)}
+@media(max-width:900px){
+  .hero3 .sky::before{inset:0 0 auto 0;height:412px;background-size:auto 360px;background-position:98% 52px;transform:none}
+  .phero3 .sky::before{inset:0 0 auto 0;height:310px;background-size:auto 250px;background-position:98% 58px;transform:none}
+  .hero3 .sky::after{background:linear-gradient(180deg,rgba(42,10,33,.2) 0,rgba(42,10,33,.05) 160px,#2A0A21 412px),repeating-linear-gradient(0deg,transparent 0 79px,rgba(255,255,255,.07) 79px 80px),repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.07) 79px 80px)}
+  .phero3 .sky::after{background:linear-gradient(180deg,rgba(42,10,33,.2) 0,rgba(42,10,33,.05) 120px,#2A0A21 310px),repeating-linear-gradient(0deg,transparent 0 79px,rgba(255,255,255,.07) 79px 80px),repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.07) 79px 80px)}
+  .hero3{padding-top:350px}.phero3{padding-top:290px}
+}
+
+/* cockpit HUD over the hero photo */
+.hud{position:absolute;inset:0;z-index:2;pointer-events:none;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:rgba(255,255,255,.88);text-transform:uppercase}
+.hud .hc{position:absolute;width:30px;height:30px;border:0 solid var(--sky);opacity:.9}
+.hud .c1{left:22px;top:92px;border-left-width:2px;border-top-width:2px}
+.hud .c2{right:22px;top:92px;border-right-width:2px;border-top-width:2px}
+.hud .c3{left:22px;bottom:84px;border-left-width:2px;border-bottom-width:2px}
+.hud .c4{right:22px;bottom:84px;border-right-width:2px;border-bottom-width:2px}
+.hud-tl,.hud-tr,.hud-bl,.hud-br{position:absolute;display:flex;align-items:center;gap:10px}
+.hud-tl{left:64px;top:98px}
+.hud-tr{right:64px;top:98px}
+.hud-bl{left:64px;bottom:92px}
+.hud-br{right:64px;bottom:92px}
+.hud .rec{width:9px;height:9px;border-radius:50%;background:#FF4D4D;animation:blink 1.1s steps(2,jump-none) infinite}
+@keyframes blink{50%{opacity:.15}}
+.hud b{font-weight:500;color:#fff}
+.hud .sig{display:inline-flex;align-items:flex-end;gap:2px;height:14px}
+.hud .sig i{width:3px;background:var(--sky);border-radius:1px;animation:sig 1.8s ease-in-out infinite}
+.hud .sig i:nth-child(1){height:5px}.hud .sig i:nth-child(2){height:8px;animation-delay:.15s}.hud .sig i:nth-child(3){height:11px;animation-delay:.3s}.hud .sig i:nth-child(4){height:14px;animation-delay:.45s}
+@keyframes sig{50%{opacity:.35}}
+.hud .tape{width:130px;height:14px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.65) 0 1px,transparent 1px 10px);position:relative;animation:tape 6s linear infinite;mask:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent)}
+@keyframes tape{to{background-position:-40px 0}}
+.trk{position:absolute;z-index:3;pointer-events:none;opacity:0;transition:opacity .6s .4s}
+.trk.on{opacity:1}
+.trk::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(var(--sky),var(--sky)) 0 0/22px 2px no-repeat,linear-gradient(var(--sky),var(--sky)) 0 0/2px 22px no-repeat,
+  linear-gradient(var(--sky),var(--sky)) 100% 0/22px 2px no-repeat,linear-gradient(var(--sky),var(--sky)) 100% 0/2px 22px no-repeat,
+  linear-gradient(var(--sky),var(--sky)) 0 100%/22px 2px no-repeat,linear-gradient(var(--sky),var(--sky)) 0 100%/2px 22px no-repeat,
+  linear-gradient(var(--sky),var(--sky)) 100% 100%/22px 2px no-repeat,linear-gradient(var(--sky),var(--sky)) 100% 100%/2px 22px no-repeat;
+  animation:lock 3.2s ease-in-out infinite}
+@keyframes lock{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.trk-l{position:absolute;left:0;top:-26px;white-space:nowrap;font-size:11px;padding:4px 9px;background:var(--sky);color:#2A0A21;font-weight:600;border-radius:3px;letter-spacing:.06em}
+.trk-r{position:absolute;right:0;bottom:-24px;font-size:10.5px;color:var(--skyl);white-space:nowrap}
+@media(max-width:900px){.hud-bl,.hud-br,.hud .c3,.hud .c4{display:none}.hud .c1,.hud .c2{top:84px}.hud-tl,.hud-tr{top:90px;left:52px;right:52px;font-size:10px}.hud-tl{right:auto}.hud-tr{left:auto}.trk-r{display:none}}
+
+/* waypoint-style section labels */
+.idx{position:relative}
+.idx::before{content:"";width:7px;height:7px;background:var(--sky);transform:rotate(45deg);display:inline-block}
+.dark .idx::before{background:var(--skyl)}
+
+/* camera-focus corners on hover */
+.dcard::after,.ex::after,.uc::after,.member::after,.ed::after,.row::after,.prod-link::after{content:"";position:absolute;inset:9px;pointer-events:none;opacity:0;transform:scale(1.04);transition:opacity .35s,transform .45s var(--ease);background:
+  linear-gradient(var(--sky),var(--sky)) 0 0/16px 2px no-repeat,linear-gradient(var(--sky),var(--sky)) 0 0/2px 16px no-repeat,
+  linear-gradient(var(--sky),var(--sky)) 100% 0/16px 2px no-repeat,linear-gradient(var(--sky),var(--sky)) 100% 0/2px 16px no-repeat,
+  linear-gradient(var(--sky),var(--sky)) 0 100%/16px 2px no-repeat,linear-gradient(var(--sky),var(--sky)) 0 100%/2px 16px no-repeat,
+  linear-gradient(var(--sky),var(--sky)) 100% 100%/16px 2px no-repeat,linear-gradient(var(--sky),var(--sky)) 100% 100%/2px 16px no-repeat}
+.dcard:hover::after,.ex:hover::after,.uc:hover::after,.member:hover::after,.ed:hover::after,.row:hover::after,.prod-link:hover::after{opacity:1;transform:none}
+.dcard,.ex,.uc,.member,.ed,.row,.prod-link{position:relative}
+
+/* rotor-shaped bullets */
+.ticks li::before{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='9.5' fill='none' stroke='%23801E62' stroke-opacity='.35'/><path d='M3.5 12h17M12 3.5v17' stroke='%23801E62' stroke-width='2.4' stroke-linecap='round'/><circle cx='12' cy='12' r='2.8' fill='%2338B6FF'/></svg>") center/24px no-repeat;background-color:transparent;transition:transform .7s var(--ease)}
+.ticks li:hover::before{transform:rotate(180deg)}
+
+/* faint drone blueprint inside the dark sections */
+.dark{background-image:url("assets/drone-outline.svg");background-repeat:no-repeat;background-position:right -90px bottom 30px;background-size:560px}
+@media(max-width:700px){.dark{background-size:340px;background-position:right -110px bottom 10px}}
+
+/* back-to-top rotor button */
+.pad{position:fixed;right:22px;bottom:22px;z-index:72;width:54px;height:54px;border-radius:50%;border:0;background:#fff;box-shadow:0 14px 30px -10px rgba(90,21,69,.55),0 0 0 1px rgba(56,182,255,.35);cursor:pointer;display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(14px) scale(.9);transition:opacity .35s,transform .45s var(--ease),visibility .35s}
+.pad.on{opacity:1;visibility:visible;transform:none}
+.pad svg{width:30px;height:30px;animation:rot .5s linear infinite}
+.pad:hover svg{animation-duration:.18s}
+@keyframes rot{to{transform:rotate(360deg)}}
+
+/* pre-flight intro (first visit of a session, home page only) */
+.preflight{position:fixed;inset:0;z-index:300;background:#2A0A21;color:#fff;display:grid;place-items:center;pointer-events:none;animation:pf 2.3s cubic-bezier(.76,0,.2,1) forwards}
+@keyframes pf{0%,72%{transform:none}100%{transform:translateY(-101%)}}
+.pf-in{display:grid;justify-items:center;gap:18px;font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;animation:pfin .5s ease both}
+@keyframes pfin{from{opacity:0;transform:translateY(10px)}}
+.pf-in svg{width:84px;height:84px;animation:rot .35s linear infinite}
+.pf-in ul{list-style:none;margin:0;padding:0;display:flex;gap:22px;color:rgba(255,255,255,.55)}
+.pf-in li{opacity:0;animation:pfli .35s ease forwards}
+.pf-in li:nth-child(1){animation-delay:.5s}.pf-in li:nth-child(2){animation-delay:.9s}.pf-in li:nth-child(3){animation-delay:1.3s}
+@keyframes pfli{to{opacity:1;color:#8FF0C4}}
+.pf-in li::after{content:" \2713"}
+@media (prefers-reduced-motion:reduce){.preflight{display:none}.pad svg,.hud .rec,.hud .sig i,.hud .tape,.trk::before{animation:none}}
+@media(max-width:900px){.trk-l{top:auto;bottom:-26px}}

@@ -332,3 +332,68 @@ if(window.matchMedia('(pointer:fine)').matches&&!reduce){
     requestAnimationFrame(loop);
   })();
 })();
+
+/* ---------- DESIGN 3d: cockpit HUD, waypoint labels, back-to-top rotor, pre-flight intro ---------- */
+(function(){
+  'use strict';
+  var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* waypoint labels: 01 -> WP 01 */
+  $$('.idx').forEach(function(e){var t=e.textContent.trim();if(/^\d+$/.test(t))e.textContent='WP '+t});
+
+  /* rotor icon (used by the loader and the back-to-top button) */
+  var ROTOR='<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#38B6FF" stroke-opacity=".55" stroke-width="1.5"/><rect x="3" y="21.5" width="42" height="5" rx="2.5" fill="#801E62"/><rect x="21.5" y="3" width="5" height="42" rx="2.5" fill="#801E62" opacity=".85"/><circle cx="24" cy="24" r="5.5" fill="#1D1421"/><circle cx="24" cy="24" r="2" fill="#38B6FF"/></svg>';
+  var ROTOR_W=ROTOR.replace(/#801E62/g,'#ffffff').replace('fill="#1D1421"','fill="#38B6FF"');
+
+  /* hero HUD with a tracking box locked onto the drone in the photo */
+  var hero=$('.hero3')||$('.phero3');
+  if(hero){
+    var home=hero.classList.contains('hero3');
+    var hud=document.createElement('div');hud.className='hud';hud.setAttribute('aria-hidden','true');
+    hud.innerHTML='<i class="hc c1"></i><i class="hc c2"></i><i class="hc c3"></i><i class="hc c4"></i>'+
+      '<div class="hud-tl"><span class="rec"></span>REC <b id="hudT">00:00:00</b></div>'+
+      '<div class="hud-tr">Live view <span class="sig"><i></i><i></i><i></i><i></i></span></div>'+
+      '<div class="hud-bl">GPS lock &middot; 12.97&deg;N 77.59&deg;E</div>'+
+      '<div class="hud-br"><span>HDG</span><span class="tape"></span></div>'+
+      '<div class="trk" id="trk"><span class="trk-l">UAV-01 &middot; Tracking</span><span class="trk-r">Mission active</span></div>';
+    hero.appendChild(hud);
+    var t0=Date.now(),hudT=hud.querySelector('#hudT');
+    setInterval(function(){var s=Math.floor((Date.now()-t0)/1000);hudT.textContent=('0'+Math.floor(s/3600)).slice(-2)+':'+('0'+Math.floor(s/60)%60).slice(-2)+':'+('0'+s%60).slice(-2)},1000);
+
+    var trk=hud.querySelector('#trk');
+    function place(){
+      var W=hero.clientWidth,H=hero.clientHeight,mobile=window.innerWidth<=900,dx,dy,bw,bh,s;
+      if(!mobile){
+        s=Math.max(W/1800,H/1013);
+        var w=1800*s,h=1013*s,px=.72,py=home?.24:.30;
+        var ox=(W-w)*px,oy=(H-h)*py,x=ox+1333*s,y=oy+267*s,cx=.74*W,cy=.26*H,k=1.3;
+        dx=cx+(x-cx)*k;dy=cy+(y-cy)*k;bw=640*s*k;bh=215*s*k;
+      }else{
+        var bandH=home?360:250,top=home?52:58;s=bandH/1013;
+        var ox2=(W-1800*s)*.98;dx=ox2+1333*s;dy=top+267*s;bw=700*s;bh=240*s;
+      }
+      trk.style.left=(dx-bw/2)+'px';trk.style.top=(dy-bh/2)+'px';trk.style.width=bw+'px';trk.style.height=bh+'px';
+      trk.classList.add('on');
+    }
+    place();window.addEventListener('resize',place);window.addEventListener('load',place);
+  }
+
+  /* back-to-top rotor */
+  var pad=document.createElement('button');pad.className='pad';pad.type='button';pad.setAttribute('aria-label','Back to top');pad.innerHTML=ROTOR;
+  pad.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'})});
+  document.body.appendChild(pad);
+  function padv(){pad.classList.toggle('on',window.scrollY>700)}
+  window.addEventListener('scroll',padv,{passive:true});padv();
+
+  /* pre-flight intro: once per session, home page only */
+  try{
+    if(!reduce&&/index\.html$|\/$/.test(location.pathname)&&!sessionStorage.getItem('dpf')){
+      sessionStorage.setItem('dpf','1');
+      var pf=document.createElement('div');pf.className='preflight';pf.setAttribute('aria-hidden','true');
+      pf.innerHTML='<div class="pf-in">'+ROTOR_W+'<div>Pre-flight check</div><ul><li>Rotors</li><li>GPS</li><li>Link</li></ul></div>';
+      document.body.appendChild(pf);
+      setTimeout(function(){if(pf.parentNode)pf.parentNode.removeChild(pf)},2500);
+    }
+  }catch(e){}
+})();
