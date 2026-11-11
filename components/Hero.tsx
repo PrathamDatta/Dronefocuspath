@@ -1,6 +1,5 @@
 "use client";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const badges = [
@@ -10,54 +9,45 @@ const badges = [
 ];
 
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "16%"]);
   const up = (d: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 28 },
+    initial: reduce ? false : { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.7, delay: d, ease },
+    transition: { duration: 0.6, delay: d, ease },
   });
   return (
-    <section id="top" ref={ref} className="relative isolate overflow-hidden bg-primary-deep text-white">
-      <motion.div
-        style={{ y, backgroundImage: "url(/assets/drone-hero.jpg)" }}
-        className="absolute -inset-y-[10%] inset-x-0 -z-20 bg-cover bg-no-repeat bg-[position:78%_center] md:bg-[position:70%_center]"
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(42,10,33,.96)_0%,rgba(42,10,33,.86)_38%,rgba(42,10,33,.2)_72%,rgba(42,10,33,0)_100%)] max-md:bg-[linear-gradient(180deg,rgba(42,10,33,.45),rgba(42,10,33,.94)_72%)]"
-        aria-hidden
-      />
-      <div className="container-x flex min-h-[100svh] flex-col justify-center pb-24 pt-36">
-        <motion.p {...up(0.05)} className="eyebrow !text-accent-light">
-          Mission systems for the UAV era. Built in India, for the world.
+    <section id="top" className="grid-bg relative border-b border-line pb-20 pt-28 md:pb-28 md:pt-20">
+      <div className="container-x">
+        <motion.div {...up(0)} className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-line pb-4 font-mono text-xs text-ink-muted">
+          <span className="flex items-center gap-2"><span className="status-dot" /> SYSTEM LIVE</span>
+          <span>12.97&deg;N&nbsp;&nbsp;77.59&deg;E</span>
+          <span className="hidden sm:inline">BENGALURU, IN</span>
+          <span className="ml-auto hidden sm:inline">MISSION SYSTEMS FOR THE UAV ERA</span>
+        </motion.div>
+
+        <motion.p {...up(0.05)} className="eyebrow mt-8">
+          Mission systems for the UAV era &mdash; built in India, for the world
         </motion.p>
-        <motion.h1 {...up(0.15)} className="mt-6 max-w-3xl text-3xl font-semibold leading-[1.1] tracking-tight md:text-4xl">
-          Everything the <span className="text-accent">mission</span> needs.
+        <motion.h1 {...up(0.15)} className="mt-5 max-w-3xl text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">
+          Everything the <em className="font-normal italic text-signal-dim">mission</em> needs.
         </motion.h1>
-        <motion.p {...up(0.3)} className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+        <motion.p {...up(0.3)} className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
           Mission infrastructure, deployable UAV systems and operator training for evolving UAV operational needs.
         </motion.p>
-        <motion.div {...up(0.45)} className="mt-10 flex flex-wrap gap-4">
-          <motion.a whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} href="#contact" className="btn btn-light">
-            Request a demo
-          </motion.a>
-          <motion.a whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }} href="#capabilities" className="btn btn-ghost">
-            Explore capabilities
-          </motion.a>
+        <motion.div {...up(0.4)} className="mt-10 flex flex-wrap gap-4">
+          <a href="#contact" className="btn btn-primary">Request a demo</a>
+          <a href="#capabilities" className="btn btn-ghost">Explore capabilities ↓</a>
         </motion.div>
-        <motion.ul {...up(0.6)} className="mt-16 flex flex-wrap gap-x-10 gap-y-4 text-sm text-white/80">
+
+        <motion.ul {...up(0.5)} className="mt-14 grid grid-cols-1 gap-px overflow-hidden border border-line bg-line sm:grid-cols-3">
           {badges.map(([a, b]) => (
-            <li key={a} className="flex items-center gap-3">
-              <span className="rounded-md bg-white/10 px-2.5 py-1 font-mono text-xs font-semibold text-accent-light">{a}</span>
-              {b}
+            <li key={a} className="flex items-center gap-3 bg-panel px-5 py-4">
+              <span className="border border-signal-dim/40 bg-signal-soft px-2 py-1 font-mono text-xs font-semibold text-signal-dim">{a}</span>
+              <span className="text-sm text-ink-muted">{b}</span>
             </li>
           ))}
         </motion.ul>
       </div>
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" aria-hidden />
     </section>
   );
 }

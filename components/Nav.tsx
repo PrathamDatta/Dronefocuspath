@@ -3,49 +3,82 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const links = [
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "Editions", href: "#editions" },
-  { label: "Team", href: "#team" },
-  { label: "FAQ", href: "#faq" },
+const systems = [
+  { id: "capabilities", label: "Mission Infrastructure", code: "01" },
+  { id: "capabilities", label: "Mission Air Systems", code: "02" },
+  { id: "capabilities", label: "Dronocation", code: "03" },
+  { id: "editions", label: "Editions", code: "04" },
+  { id: "team", label: "Team", code: "05" },
+  { id: "faq", label: "FAQ", code: "06" },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [solid, setSolid] = useState(false);
+  const [time, setTime] = useState("");
   useEffect(() => {
-    const on = () => setSolid(window.scrollY > 24);
-    on();
-    window.addEventListener("scroll", on, { passive: true });
-    return () => window.removeEventListener("scroll", on);
+    const tick = () => setTime(new Date().toUTCString().slice(17, 25) + " UTC");
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
   }, []);
+
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${open ? "bg-white border-b border-line" : solid ? "bg-white/90 backdrop-blur border-b border-line" : "bg-transparent"}`}>
-      <div className="container-x flex h-20 items-center justify-between">
+    <>
+      {/* Mobile top bar */}
+      <header className="fixed inset-x-0 top-0 z-50 flex h-16 items-center justify-between border-b border-line bg-paper/95 px-6 backdrop-blur md:hidden">
         <a href="#top" aria-label="Derospace Systems home">
-          <Image src={solid || open ? "/assets/logo.svg" : "/assets/logo-white.svg"} alt="Derospace Systems" width={150} height={44} priority className="h-11 w-auto" />
+          <Image src="/assets/logo.svg" alt="Derospace Systems" width={130} height={30} priority className="h-8 w-auto" />
         </a>
-        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className={`text-sm font-semibold uppercase tracking-[.08em] transition-colors ${solid ? "text-ink hover:text-primary" : "text-white/90 hover:text-white"}`}>{l.label}</a>
-          ))}
-          <a href="#contact" className={`btn ${solid ? "btn-primary" : "btn-light"}`}>Request a demo</a>
-        </nav>
-        <button type="button" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)} className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-full border border-current md:hidden" style={{ color: solid || open ? "#801E62" : "#fff" }}>
-          <span className={`h-0.5 w-5 bg-current transition-transform ${open ? "translate-y-1 rotate-45" : ""}`} />
-          <span className={`h-0.5 w-5 bg-current transition-transform ${open ? "-translate-y-1 -rotate-45" : ""}`} />
+        <button type="button" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)} className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 border border-ink/30">
+          <span className={`h-0.5 w-5 bg-ink transition-transform ${open ? "translate-y-1 rotate-45" : ""}`} />
+          <span className={`h-0.5 w-5 bg-ink transition-transform ${open ? "-translate-y-1 -rotate-45" : ""}`} />
         </button>
-      </div>
+      </header>
       <AnimatePresence>
         {open && (
-          <motion.nav aria-label="Mobile" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }} className="container-x flex flex-col gap-1 pb-8 md:hidden">
-            {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="border-b border-line py-4 text-lg font-semibold uppercase tracking-wide text-ink">{l.label}</a>
+          <motion.nav
+            aria-label="Mobile"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-x-0 top-16 z-50 flex flex-col gap-1 border-b border-line bg-paper px-6 py-6 md:hidden"
+          >
+            {systems.map((s) => (
+              <a key={s.label} href={`#${s.id}`} onClick={() => setOpen(false)} className="flex items-center gap-3 border-b border-line py-3 font-mono text-sm uppercase tracking-wide text-ink">
+                <span className="text-ink-muted">{s.code}</span>{s.label}
+              </a>
             ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="btn btn-primary mt-6">Request a demo</a>
+            <a href="#contact" onClick={() => setOpen(false)} className="btn btn-primary mt-4 self-start">Request a demo</a>
           </motion.nav>
         )}
       </AnimatePresence>
-    </header>
+
+      {/* Desktop left rail */}
+      <header className="fixed inset-y-0 left-0 z-50 hidden w-[248px] flex-col border-r border-line bg-paper md:flex">
+        <a href="#top" aria-label="Derospace Systems home" className="flex items-center gap-2 border-b border-line px-6 py-6">
+          <Image src="/assets/logo.svg" alt="Derospace Systems" width={140} height={32} priority className="h-8 w-auto" />
+        </a>
+        <div className="flex items-center gap-2 border-b border-line px-6 py-3 font-mono text-[11px] text-ink-muted">
+          <span className="status-dot" /> SYSTEM LIVE <span className="ml-auto">{time}</span>
+        </div>
+        <nav aria-label="Primary" className="flex-1 overflow-y-auto px-3 py-4">
+          {systems.map((s) => (
+            <a
+              key={s.label}
+              href={`#${s.id}`}
+              className="group flex items-center gap-3 border-b border-line/60 px-3 py-3.5 font-mono text-[13px] uppercase tracking-[.04em] text-ink-muted transition-colors hover:text-signal-dim"
+            >
+              <span className="text-[11px] text-ink-muted/70 group-hover:text-signal-dim">{s.code}</span>
+              <span className="truncate">{s.label}</span>
+              <span aria-hidden className="ml-auto opacity-0 transition-opacity group-hover:opacity-100">→</span>
+            </a>
+          ))}
+        </nav>
+        <div className="border-t border-line p-4">
+          <a href="#contact" className="btn btn-primary w-full">Request a demo</a>
+        </div>
+      </header>
+    </>
   );
 }

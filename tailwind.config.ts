@@ -5,14 +5,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: { DEFAULT: "#801E62", dark: "#5A1545", deep: "#2A0A21", soft: "#F7EEF4" },
-        accent: { DEFAULT: "#38B6FF", light: "#9BD9FF", dark: "#0B7FC4" },
-        ink: { DEFAULT: "#1D1421", muted: "#5E5365" },
-        line: "#E8DFE5",
+        paper: "#F6F7F4",
+        panel: "#FFFFFF",
+        graphite: { DEFAULT: "#12171A", deep: "#0C1012", soft: "#E8EBE6" },
+        ink: { DEFAULT: "#12171A", muted: "#56635D" },
+        line: "#D7DDD3",
+        signal: { DEFAULT: "#1FAE6E", dim: "#17804F", soft: "#E3F3EA" },
+        amber: { DEFAULT: "#D98B2B", soft: "#FBEEDC" },
       },
       fontFamily: { sans: ["var(--font-sans)", "system-ui", "sans-serif"], mono: ["var(--font-mono)", "monospace"] },
       fontSize: { xs: "12px", sm: "14px", base: "16px", lg: "18px", xl: "24px", "2xl": "32px", "3xl": "48px", "4xl": "64px" },
-      boxShadow: { card: "0 24px 48px -24px rgba(90,21,69,.28)" },
     },
   },
   plugins: [],
