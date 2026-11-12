@@ -1,5 +1,6 @@
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
+import { ClipReveal, Marquee } from "./motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const badges = [
@@ -28,14 +29,17 @@ export default function Hero() {
         <motion.p {...up(0.05)} className="eyebrow mt-8">
           Mission systems for the UAV era &mdash; built in India, for the world
         </motion.p>
-        <motion.h1 {...up(0.15)} className="mt-5 max-w-3xl text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">
-          Everything the <em className="font-normal italic text-signal-dim">mission</em> needs.
-        </motion.h1>
+        <h1 className="mt-5 max-w-3xl text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">
+          <ClipReveal text="Everything the" className="block" delay={0.1} />
+          <span className="block">
+            <ClipReveal text="mission" className="inline font-normal italic text-signal-dim" delay={0.3} /> <ClipReveal text="needs." className="inline" delay={0.4} />
+          </span>
+        </h1>
         <motion.p {...up(0.3)} className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
           Mission infrastructure, deployable UAV systems and operator training for evolving UAV operational needs.
         </motion.p>
         <motion.div {...up(0.4)} className="mt-10 flex flex-wrap gap-4">
-          <a href="#contact" className="btn btn-primary">Request a demo</a>
+          <a href="#contact" className="btn btn-primary btn-ripple">Request a demo</a>
           <a href="#capabilities" className="btn btn-ghost">Explore capabilities ↓</a>
         </motion.div>
 
@@ -47,6 +51,18 @@ export default function Hero() {
             </li>
           ))}
         </motion.ul>
+      </div>
+
+      <div className="mt-16 border-t border-line py-3 font-mono text-xs uppercase tracking-[.08em] text-ink-muted">
+        <Marquee
+          items={[
+            "DGCA-AUTHORISED RPTO",
+            "DPIIT-RECOGNISED STARTUP",
+            "PATENT PENDING",
+            "MISSION SYSTEMS FOR THE UAV ERA",
+            "BENGALURU, INDIA",
+          ]}
+        />
       </div>
     </section>
   );

@@ -228,7 +228,12 @@ export function Footer() {
     <footer className="border-t border-line bg-paper py-8 font-mono text-xs text-ink-muted">
       <div className="container-x flex flex-wrap items-center justify-between gap-4">
         <p>© 2026 DEROSPACE SYSTEMS &middot; BENGALURU, IN &middot; PATENT PENDING &middot; DGCA-AUTHORISED RPTO</p>
-        <a href={SITE} className="font-semibold text-signal-dim hover:underline">derospacesystems.com</a>
+        <a href={SITE} className="link-roll font-semibold">
+          <span className="roll-track">
+            <span className="roll-line text-signal-dim">derospacesystems.com</span>
+            <span className="roll-line text-ink">derospacesystems.com</span>
+          </span>
+        </a>
       </div>
     </footer>
   );

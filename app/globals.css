@@ -22,4 +22,27 @@
   .btn-ghost { @apply border-ink/30 text-ink/80 hover:border-ink hover:text-ink; }
   .btn-outline { @apply border-line text-ink hover:border-signal-dim hover:text-signal-dim; }
   .panel { @apply border border-line bg-panel; }
+
+  /* link-roll: current label rolls up and out, duplicate label rolls up and in from below */
+  .link-roll { @apply relative inline-block overflow-hidden; height: 1.2em; }
+  .link-roll .roll-track { @apply flex flex-col; transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1); }
+  .link-roll:hover .roll-track { transform: translateY(-50%); }
+  .link-roll .roll-line { height: 1.2em; line-height: 1.2em; }
+
+  /* btn-ripple: radial fill expands from center on hover, using an animatable custom property */
+  .btn-ripple { @apply relative isolate overflow-hidden; }
+  .btn-ripple::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 50%, currentColor var(--ripple, 0%), transparent var(--ripple, 0%));
+    opacity: 0.14;
+    pointer-events: none;
+    transition: --ripple 0.5s cubic-bezier(0.3, 0.45, 0.3, 1);
+  }
+  .btn-ripple:hover::before { --ripple: 140%; }
+}
+@property --ripple {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
 }

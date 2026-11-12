@@ -70,13 +70,18 @@ export default function Nav() {
               className="group flex items-center gap-3 border-b border-line/60 px-3 py-3.5 font-mono text-[13px] uppercase tracking-[.04em] text-ink-muted transition-colors hover:text-signal-dim"
             >
               <span className="text-[11px] text-ink-muted/70 group-hover:text-signal-dim">{s.code}</span>
-              <span className="truncate">{s.label}</span>
+              <span className="link-roll truncate">
+                <span className="roll-track">
+                  <span className="roll-line">{s.label}</span>
+                  <span className="roll-line text-signal-dim">{s.label}</span>
+                </span>
+              </span>
               <span aria-hidden className="ml-auto opacity-0 transition-opacity group-hover:opacity-100">→</span>
             </a>
           ))}
         </nav>
         <div className="border-t border-line p-4">
-          <a href="#contact" className="btn btn-primary w-full">Request a demo</a>
+          <a href="#contact" className="btn btn-primary btn-ripple w-full">Request a demo</a>
         </div>
       </header>
     </>
