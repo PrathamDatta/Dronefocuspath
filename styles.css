@@ -651,11 +651,7 @@ em{background-image:linear-gradient(transparent 70%,rgba(56,182,255,.4) 70%)}
 .pdrone svg{width:100%;height:100%}
 @media(max-width:1120px){.nav{inset:84px 12px 12px 12px}}
 
-/* companion drone that follows the cursor / scroll */
-.buddy{position:fixed;left:0;top:0;width:56px;height:56px;z-index:75;pointer-events:none;opacity:0;transition:opacity .6s;will-change:transform}
-.buddy.on{opacity:1}
-.buddy svg{width:100%;height:100%;filter:drop-shadow(0 16px 10px rgba(90,21,69,.32));transition:transform .25s}
-@media(max-width:700px){.buddy{width:38px;height:38px}}
+
 
 /* sky + clouds */
 .sky{position:absolute;inset:0;overflow:hidden;pointer-events:none}
@@ -750,7 +746,7 @@ a.ed:hover{border-top-color:#fff}
 .site-foot{background:#2A0A21}
 .cta-final::before{border-color:rgba(56,182,255,.35);box-shadow:0 0 0 70px rgba(56,182,255,.06),0 0 0 140px rgba(56,182,255,.04)}
 
-@media (prefers-reduced-motion:reduce){.cloud,.rings i,.hwrap,.d-shadow,.deck-drone{animation:none!important}.buddy,.pdrone{display:none}}
+@media (prefers-reduced-motion:reduce){.cloud,.rings i,.hwrap,.d-shadow,.deck-drone{animation:none!important}.pdrone{display:none}}
 .dcard .b-flow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
 .dcard .b-flow span{font-size:12px;font-weight:650;padding:6px 12px;border-radius:999px;background:rgba(21,18,29,.06);color:var(--ink)}
 .dcard .b-kind{font-size:13px;font-weight:650;color:var(--ink2);margin:0 0 10px}
