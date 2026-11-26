@@ -71,7 +71,9 @@
   </div>
 </section>
 <section class="news"><div class="wrap">
-<div class="empty reveal" style="margin-top:0">Nothing here yet. Check back soon.</div>
+<div class="news-filters" role="group" aria-label="Filter news and milestones" id="newsFilters"></div>
+<div class="news-grid" id="newsAll"></div>
+<div class="empty" id="newsEmpty" hidden>Nothing here yet. Check back soon.</div>
 </div></section>
 
 </main>
@@ -91,5 +93,42 @@
 </footer>
 
 <script src="app.js"></script>
+<script>
+(function(){
+var NEWS=[
+{date:'',type:'ip',title:'DeroMiC patent application published',text:'Indian Patent Application 202541104086 A, covering DeroMiC\u2019s unified mission infrastructure, has been published.',image:'',link:'',linkLabel:'View patent record',draft:true},
+{date:'',type:'ip',title:'dXcale patent application published',text:'Patent application for the dXcale rapid-deployment UAV system has been published. Application number to be added.',image:'',link:'',linkLabel:'View patent record',draft:true},
+{date:'',type:'award',title:'DPIIT recognition under Startup India',text:'Derospace Systems is recognised as a startup by the Department for Promotion of Industry and Internal Trade.',image:'',link:'',linkLabel:'View certificate',draft:true},
+{date:'',type:'milestone',title:'DGCA-authorised Remote Pilot Training Organisation',text:'Our remote-pilot training is delivered through a DGCA-authorised RPTO. Approval number to be added.',image:'',link:'',linkLabel:'',draft:true},
+{date:'',type:'event',title:'Drone-operations course at Police Training College, Moradabad',text:'Classroom sessions and practical flying for police officers, covering drone operations from fundamentals to field practice.',image:'assets/training.jpg',link:'',linkLabel:'',draft:true},
+{date:'',type:'media',title:'Media coverage (sample entry)',text:'Replace with a headline, the publication name and a link to the article.',image:'',link:'',linkLabel:'Read article',draft:true}
+];
+var TYPES={milestone:'Milestones',award:'Awards & Recognition',ip:'IP & Patents',media:'Media',event:'Events'};
+var TAG={milestone:'Milestone',award:'Recognition',ip:'IP & Patents',media:'Media',event:'Event'};
+function esc(t){var d=document.createElement('div');d.textContent=t||'';return d.innerHTML}
+function card(n){
+  var el=document.createElement('article');el.className='news-card news-'+n.type+' reveal in';
+  el.innerHTML=(n.image?'<div class="news-img"><img src="'+esc(n.image)+'" alt="" loading="lazy"></div>':'<div class="news-band"><span>'+esc(TAG[n.type])+'</span></div>')+
+  '<div class="news-body"><p class="news-meta"><span class="news-tag">'+esc(TAG[n.type])+'</span><span class="news-date">'+(n.date?esc(n.date):'<i>date to confirm</i>')+'</span></p>'+
+  '<h3>'+esc(n.title)+'</h3><p>'+esc(n.text)+'</p>'+
+  (n.link?'<a class="text-link" href="'+esc(n.link)+'" target="_blank" rel="noopener">'+esc(n.linkLabel||'Read more')+'</a>':'')+
+  (n.draft?'<p class="news-draft">Draft entry: confirm details before launch</p>':'')+'</div>';
+  return el;
+}
+var all=document.getElementById('newsAll'),filters=document.getElementById('newsFilters'),empty=document.getElementById('newsEmpty');
+function show(type){
+  all.innerHTML='';
+  var list=NEWS.filter(function(n){return type==='all'||n.type===type});
+  list.forEach(function(n){all.appendChild(card(n))});
+  empty.hidden=list.length>0;
+  Array.prototype.forEach.call(filters.querySelectorAll('button'),function(b){b.setAttribute('aria-pressed',String(b.dataset.type===type))});
+}
+[['all','All']].concat(Object.keys(TYPES).map(function(k){return[k,TYPES[k]]})).forEach(function(f){
+  var b=document.createElement('button');b.type='button';b.className='toggle';b.dataset.type=f[0];b.textContent=f[1];
+  b.addEventListener('click',function(){show(f[0])});filters.appendChild(b);
+});
+show('all');
+})();
+</script>
 </body>
 </html>
